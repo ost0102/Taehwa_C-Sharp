@@ -1,0 +1,8 @@
+﻿@charset "utf-8";
+
+@font-face {
+    font-family: 'Noto Sans KR';
+    src: url(./fonts/NotoSansKR-VariableFont_wght.woff2) format('woff2');
+    font-style: normal;
+    font-display: fallback;
+}

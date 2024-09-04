@@ -1,0 +1,268 @@
+﻿@{
+    Layout = "~/Views/Shared/_SubLayout2.cshtml";
+
+    string setLang = "";
+    if (HttpContext.Current.Session["Language"] == null)
+    {
+        if (Request.Params["Language"] == null)
+        {
+            setLang = "KO";
+            HttpContext.Current.Session["Language"] = "KO";
+        }
+        else
+        {
+            setLang = "EN";
+            HttpContext.Current.Session["Language"] = "EN";
+        }
+    }
+    else
+    {
+        if (Request.Params["Language"] == "KO")
+        {
+            setLang = "KO";
+            HttpContext.Current.Session["Language"] = "KO";
+        }
+        else if (Request.Params["Language"] == "EN")
+        {
+            setLang = "EN";
+            HttpContext.Current.Session["Language"] = "EN";
+        }
+        else
+        {
+            setLang = HttpContext.Current.Session["Language"].ToString();
+            HttpContext.Current.Session["Language"] = HttpContext.Current.Session["Language"].ToString();
+        }
+    }
+
+    if (string.IsNullOrEmpty(setLang))
+    {
+        setLang = "KO";
+    }
+}
+@section Container{
+    @if (setLang.Equals("KO"))
+    {
+        <main class="container">
+            <div class="sub-header">
+                <section class="contents sub-header__cont">
+                    <div class="sub-header__title">
+                        <p class="title-visible" style="visibility:hidden;">.</p>
+                        <p>Recruitment</p>
+                    </div>
+                </section>
+            </div>
+            <section class="contents">
+                <div class="sub-main__cont">
+                    <div class="about-item__box">
+                        <div class="about__item">
+                            @if (setLang.Equals("KO"))
+                            {
+                                <h3 class="about-page__title">모집공고</h3>
+                            }
+                            else
+                            {
+                                <h3 class="about-page__title">Recruitment</h3>
+                            }
+                            <div class="about__item--cont">
+                                @{
+                                    foreach (var rowItem in Model)
+                                    {
+                                        if (rowItem.FLAG == "VIEW")
+                                        {
+                                            <div class="view-cont">
+                                                <div class="view-cont-header">
+                                                    <div class="view-cont-header__title">
+                                                        <p>@Html.Raw(@rowItem.TITLE)</p>
+                                                    </div>
+                                                    <div class="view-cont-header__etc">
+                                                        <p class="writer">@Html.Raw(@rowItem.WRITER)</p>
+                                                        <p class="date">@Html.Raw(@rowItem.REGDT.Substring(0, 10))</p>
+                                                    </div>
+                                                </div>
+                                                <div class="view-cont-body">
+                                                    @*<div class="view-cont-body__title">
+                                                            <p>@Html.Raw(@rowItem.TITLE)</p>
+                                                        </div>*@
+                                                    <div class="view-cont-body__cont">
+                                                        @Html.Raw(@rowItem.CONTENT)
+                                                    </div>
+                                                </div>
+                                                @{
+                                                    if (!string.IsNullOrEmpty(@rowItem.FILE) || !string.IsNullOrEmpty(@rowItem.FILE1) || !string.IsNullOrEmpty(@rowItem.FILE2))
+                                                    {
+                                                        <div class="cont_row">
+                                                            첨부파일 :
+                                                            <a href="@Url.Action("Download", "File", new { filename = @rowItem.FILE_NAME, rFilename = @rowItem.FILE })">@rowItem.FILE_NAME</a> &nbsp;&nbsp;
+                                                            <a href="@Url.Action("Download", "File", new { filename = @rowItem.FILE_NAME1, rFilename = @rowItem.FILE1 })">@rowItem.FILE_NAME1</a> &nbsp;&nbsp;
+                                                            <a href="@Url.Action("Download", "File", new { filename = @rowItem.FILE_NAME2, rFilename = @rowItem.FILE2 })">@rowItem.FILE_NAME2</a> &nbsp;&nbsp;
+                                                        </div>
+                                                    }
+                                                }
+
+                                                <div class="view-btn">
+                                                    <a id="View-btn">목록</a>
+                                                </div>
+                                            </div>
+                                        }
+                                    }
+                                }
+
+                                @{
+                                    string strPrev = "";
+                                    string idPrev = "#";
+                                    string strNext = "";
+                                    string idNext = "#";
+                                    foreach (var rowItem in Model)
+                                    {
+                                        if (@rowItem.FLAG == "PREV")
+                                        {
+                                            strPrev = @rowItem.TITLE;
+                                            if (!string.IsNullOrEmpty(strPrev)) idPrev = "/Recruitment/view?id=" + @rowItem.NOTICE_ID;
+                                        }
+                                        else if (@rowItem.FLAG == "NEXT")
+                                        {
+                                            strNext = @rowItem.TITLE;
+                                            if (!string.IsNullOrEmpty(strNext)) idNext = "/Recruitment/view?id=" + @rowItem.NOTICE_ID;
+                                        }
+                                    }
+
+                                    if (string.IsNullOrEmpty(strPrev)) { strPrev = "이전글이 없습니다."; }
+                                    if (string.IsNullOrEmpty(strNext)) { strNext = "다음글이 없습니다."; }
+
+                                    <div class="move_notice">
+                                        <div class="prev_notice">
+                                            <a href="@Html.Raw(idPrev)" class="prev_notice__cont">
+                                                <p class="move__title">이전</p>
+                                                <p>@Html.Raw(strPrev)</p>
+                                            </a>
+                                        </div>
+                                        <div class="next_notice">
+                                            <a href="@Html.Raw(idNext)" class="next_notice__cont">
+                                                <p class="move__title">다음</p>
+                                                <p>@Html.Raw(strNext)</p>
+                                            </a>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    }
+    else
+    {
+        <main class="container">
+            <div class="sub-header">
+                <section class="contents sub-header__cont">
+                    <div class="sub-header__title">
+                        <p class="title-visible" style="visibility:hidden;">.</p>
+                        <p>Recruitment</p>
+                    </div>
+                </section>
+            </div>
+            <section class="contents">
+                <div class="sub-main__cont">
+                    <div class="about-item__box">
+                        <div class="about__item">
+                            @if (setLang.Equals("KO"))
+                            {
+                                <h3 class="about-page__title">모집공고</h3>
+                            }
+                            else
+                            {
+                                <h3 class="about-page__title">Recruitment</h3>
+                            }
+                            <div class="about__item--cont">
+                                @{
+                                    foreach (var rowItem in Model)
+                                    {
+                                        if (rowItem.FLAG == "VIEW")
+                                        {
+                                            <div class="view-cont">
+                                                <div class="view-cont-header">
+                                                    <div class="view-cont-header__title">
+                                                        <p>@Html.Raw(@rowItem.TITLE)</p>
+                                                    </div>
+                                                    <div class="view-cont-header__etc">
+                                                        <p class="writer">@Html.Raw(@rowItem.WRITER)</p>
+                                                        <p class="date">@Html.Raw(@rowItem.REGDT.Substring(0, 10))</p>
+                                                    </div>
+                                                </div>
+                                                <div class="view-cont-body">
+                                                    @*<div class="view-cont-body__title">
+                                                            <p>@Html.Raw(@rowItem.TITLE)</p>
+                                                        </div>*@
+                                                    <div class="view-cont-body__cont">
+                                                        @Html.Raw(@rowItem.CONTENT)
+                                                    </div>
+                                                </div>
+                                                @{
+                                                    if (!string.IsNullOrEmpty(@rowItem.FILE) || !string.IsNullOrEmpty(@rowItem.FILE1) || !string.IsNullOrEmpty(@rowItem.FILE2))
+                                                    {
+                                                        <div class="cont_row">
+                                                            Attached file :
+                                                            <a href="@Url.Action("Download", "File", new { filename = @rowItem.FILE_NAME, rFilename = @rowItem.FILE })">@rowItem.FILE_NAME</a> &nbsp;&nbsp;
+                                                            <a href="@Url.Action("Download", "File", new { filename = @rowItem.FILE_NAME1, rFilename = @rowItem.FILE1 })">@rowItem.FILE_NAME1</a> &nbsp;&nbsp;
+                                                            <a href="@Url.Action("Download", "File", new { filename = @rowItem.FILE_NAME2, rFilename = @rowItem.FILE2 })">@rowItem.FILE_NAME2</a> &nbsp;&nbsp;
+                                                        </div>
+                                                    }
+                                                }
+
+                                                <div class="view-btn">
+                                                    <a id="View-btn">List</a>
+                                                </div>
+                                            </div>
+                                        }
+                                    }
+                                }
+
+                                @{
+                                    string strPrev = "";
+                                    string idPrev = "#";
+                                    string strNext = "";
+                                    string idNext = "#";
+                                    foreach (var rowItem in Model)
+                                    {
+                                        if (@rowItem.FLAG == "PREV")
+                                        {
+                                            strPrev = @rowItem.TITLE;
+                                            if (!string.IsNullOrEmpty(strPrev)) idPrev = "/Recruitment/view?id=" + @rowItem.NOTICE_ID;
+                                        }
+                                        else if (@rowItem.FLAG == "NEXT")
+                                        {
+                                            strNext = @rowItem.TITLE;
+                                            if (!string.IsNullOrEmpty(strNext)) idNext = "/Recruitment/view?id=" + @rowItem.NOTICE_ID;
+                                        }
+                                    }
+
+                                    if (string.IsNullOrEmpty(strPrev)) { strPrev = "There is no prev post"; }
+                                    if (string.IsNullOrEmpty(strNext)) { strNext = "There is no next post."; }
+
+                                    <div class="move_notice">
+                                        <div class="prev_notice">
+                                            <a href="@Html.Raw(idPrev)" class="prev_notice__cont">
+                                                <p class="move__title">Prev</p>
+                                                <p>@Html.Raw(strPrev)</p>
+                                            </a>
+                                        </div>
+                                        <div class="next_notice">
+                                            <a href="@Html.Raw(idNext)" class="next_notice__cont">
+                                                <p class="move__title">Next</p>
+                                                <p>@Html.Raw(strNext)</p>
+                                            </a>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    }
+
+
+    @Scripts.Render("~/Scripts/Recruitment/Cs.js")
+}

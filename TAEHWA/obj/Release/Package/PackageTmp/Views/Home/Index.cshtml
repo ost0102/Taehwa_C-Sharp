@@ -1,0 +1,221 @@
+﻿@{
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+
+    string setLang = "";
+    if (HttpContext.Current.Session["Language"] == null)
+    {
+        if (Request.Params["Language"] == null)
+        {
+            setLang = "KO";
+            HttpContext.Current.Session["Language"] = "KO";
+        }
+        else
+        {
+            setLang = "EN";
+            HttpContext.Current.Session["Language"] = "EN";
+        }
+    }
+    else
+    {
+        if (Request.Params["Language"] == "KO")
+        {
+            setLang = "KO";
+            HttpContext.Current.Session["Language"] = "KO";
+        }
+        else if (Request.Params["Language"] == "EN")
+        {
+            setLang = "EN";
+            HttpContext.Current.Session["Language"] = "EN";
+        }
+        else
+        {
+            setLang = HttpContext.Current.Session["Language"].ToString();
+            HttpContext.Current.Session["Language"] = HttpContext.Current.Session["Language"].ToString();
+        }
+    }
+
+    if (string.IsNullOrEmpty(setLang))
+    {
+        setLang = "KO";
+    }
+}
+@section Container{
+    @if (setLang.Equals("KO"))
+    {
+        <main class="container">
+            <div class="main-visual">
+                <div class="main-visual__cont">
+                    <div class="main-visual__area">
+                        <div class="slogan">
+                            @*<p>고객께서 시작하시기 전에,<br /> 태화엘앤씨는 준비 합니다.</p>*@
+                            <img src="~/Images/main_slogan1.png" style="max-width:100%; display:block;" />
+                            <img src="~/Images/main_slogan2.png" style="max-width:100%; display:block;" />
+                            @*<p>Before You Do, We Prepare<em>!</em></p>*@
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <section class="contents">
+                <div class="contents-box main">
+                    <p class="contents-box__txt">Our Service</p>
+                    <div class="service-box">
+                        <div class="service-box__cont">
+                            <div class="service-box__cont__item">
+                                <div class="service-type sea">
+                                    <img src="~/Images/icn_service1.png" />
+                                    <p>Sea Service</p>
+                                </div>
+                                <div class="service-type air">
+                                    <img src="~/Images/icn_service2.png" />
+                                    <p>Air Service</p>
+                                </div>
+                                <div class="service-type inland">
+                                    <img src="~/Images/icn_service4.png" />
+                                    <p>Inland Trans</p>
+                                </div>
+                            </div>
+                            <div class="service-box__cont__item">
+                                <div class="service-type house">
+                                    <img src="~/Images/icn_service5.png" />
+                                    <p>W/House</p>
+                                </div>
+                                <div class="service-type chemicals">
+                                    <img src="~/Images/icn_service3.png" />
+                                    <p>Chemicals</p>
+                                </div>
+                                <div class="service-type trading">
+                                    <img src="~/Images/icn_service6.png" />
+                                    <p>Trading</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="company-box">
+                    <div class="company-box-list">
+                        <div class="company-box-list__item">
+                            <div class="company__logo"><img src="~/Images/company_logo1.png" /></div>
+                            <div class="company__logo"><img src="~/Images/company_logo2.png" /></div>
+                            <div class="company__logo"><img src="~/Images/company_logo3.png" /></div>
+                            <div class="company__logo"><img src="~/Images/company_logo4.png" /></div>
+                        </div>
+                        <div class="company-box-list__item">
+                            <div class="company__logo"><img src="~/Images/company_logo5.png" /></div>
+                            <div class="company__logo"><img src="~/Images/company_logo6.png" /></div>
+                            <div class="company__logo"><img src="~/Images/company_logo7.png" /></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="contact-box">
+                <div class="contact-box__inner">
+                    <div class="contact-box__info1">
+                        <p>Contact Us</p>
+                        <p>언제나 전문적이고 친절한 응대로 고객을 모시겠습니다.</p>
+                    </div>
+                    <div class="contact-box__info2">
+                        <div class="contact-info">
+                            <img src="~/Images/icn_tel.png" />
+                            <p class="contact-info__tit">TEL</p>
+                            <p class="contact-info__info">82-2-2006-7500</p>
+                        </div>
+                        <div class="contact-info">
+                            <img src="~/Images/icn_mail.png" />
+                            <p class="contact-info__tit">MAIL</p>
+                            <p class="contact-info__info">taehwa@taf.co.kr</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    }
+    else
+    {
+        <main class="container">
+            <div class="main-visual">
+                <div class="main-visual__cont">
+                    <div class="main-visual__area">
+                        <div class="slogan">
+                            @*<p>고객께서 시작하시기 전에,<br /> 태화엘앤씨는 준비 합니다.</p>*@
+                            @*<img src="~/Images/main_slogan1.png" style="max-width:100%; display:block;" />*@
+                            <img src="~/Images/main_slogan2.png" style="max-width:100%; display:block;" />
+                            @*<p>Before You Do, We Prepare<em>!</em></p>*@
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <section class="contents">
+                <div class="contents-box main">
+                    <p class="contents-box__txt">Our Service</p>
+                    <div class="service-box">
+                        <div class="service-box__cont">
+                            <div class="service-box__cont__item">
+                                <div class="service-type sea">
+                                    <img src="~/Images/icn_service1.png" />
+                                    <p>Sea Service</p>
+                                </div>
+                                <div class="service-type air">
+                                    <img src="~/Images/icn_service2.png" />
+                                    <p>Air Service</p>
+                                </div>
+                                <div class="service-type inland">
+                                    <img src="~/Images/icn_service4.png" />
+                                    <p>Inland Trans</p>
+                                </div>
+                            </div>
+                            <div class="service-box__cont__item">
+                                <div class="service-type house">
+                                    <img src="~/Images/icn_service5.png" />
+                                    <p>W/House</p>
+                                </div>
+                                <div class="service-type chemicals">
+                                    <img src="~/Images/icn_service3.png" />
+                                    <p>Chemicals</p>
+                                </div>
+                                <div class="service-type trading">
+                                    <img src="~/Images/icn_service6.png" />
+                                    <p>Trading</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="company-box">
+                    <div class="company-box-list">
+                        <div class="company-box-list__item">
+                            <div class="company__logo"><img src="~/Images/company_logo1.png" /></div>
+                            <div class="company__logo"><img src="~/Images/company_logo2.png" /></div>
+                            <div class="company__logo"><img src="~/Images/company_logo3_en.png" /></div>
+                            <div class="company__logo"><img src="~/Images/company_logo4.png" /></div>
+                        </div>
+                        <div class="company-box-list__item">
+                            <div class="company__logo"><img src="~/Images/company_logo5.png" /></div>
+                            <div class="company__logo"><img src="~/Images/company_logo6_en.png" /></div>
+                            <div class="company__logo"><img src="~/Images/company_logo7.png" /></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="contact-box">
+                <div class="contact-box__inner">
+                    <div class="contact-box__info1">
+                        <p>Contact Us</p>
+                        <p>We will always serve customers with professional and friendly responses.</p>
+                    </div>
+                    <div class="contact-box__info2">
+                        <div class="contact-info">
+                            <img src="~/Images/icn_tel.png" />
+                            <p class="contact-info__tit">TEL</p>
+                            <p class="contact-info__info">82-2-2006-7500</p>
+                        </div>
+                        <div class="contact-info">
+                            <img src="~/Images/icn_mail.png" />
+                            <p class="contact-info__tit">MAIL</p>
+                            <p class="contact-info__info">taehwa@taf.co.kr</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    }
+}

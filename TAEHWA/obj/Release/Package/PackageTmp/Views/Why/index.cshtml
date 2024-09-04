@@ -1,0 +1,752 @@
+﻿@{
+    Layout = "~/Views/Shared/_SubLayout.cshtml";
+
+    string setLang = "";
+    if (HttpContext.Current.Session["Language"] == null)
+    {
+        if (Request.Params["Language"] == null)
+        {
+            setLang = "KO";
+            HttpContext.Current.Session["Language"] = "KO";
+        }
+        else
+        {
+            setLang = "EN";
+            HttpContext.Current.Session["Language"] = "EN";
+        }
+    }
+    else
+    {
+        if (Request.Params["Language"] == "KO")
+        {
+            setLang = "KO";
+            HttpContext.Current.Session["Language"] = "KO";
+        }
+        else if (Request.Params["Language"] == "EN")
+        {
+            setLang = "EN";
+            HttpContext.Current.Session["Language"] = "EN";
+        }
+        else
+        {
+            setLang = HttpContext.Current.Session["Language"].ToString();
+            HttpContext.Current.Session["Language"] = HttpContext.Current.Session["Language"].ToString();
+        }
+    }
+
+    if (string.IsNullOrEmpty(setLang))
+    {
+        setLang = "KO";
+    }
+}
+@section Container{
+    @if (setLang.Equals("KO"))
+    {
+        <main class="container">
+            <div class="sub-header">
+                <section class="contents sub-header__cont">
+                    <div class="sub-header__title">
+                        <p>
+                            WHY<br />
+                            TAEHWA L&C?
+                        </p>
+                    </div>
+                    <div class="sub-header__icon">
+                        <div class="header-icon__list on">
+                            <div class="icon-txt">
+                                <p class="icon-txt__eng">Suggestions for customers</p>
+                                <p class="icon-txt__kr">고객을 위한 말씀</p>
+                            </div>
+                            <div class="icon-img on">
+                                <img src="~/Images/why_icon1_on.png" />
+                            </div>
+                            <div class="icon-img off">
+                                <img src="~/Images/why_icon1_off.png" />
+                            </div>
+                        </div>
+                        <div class="header-icon__list off">
+                            <div class="icon-txt">
+                                <p class="icon-txt__eng">Core value&Mission</p>
+                                <p class="icon-txt__kr">가치&미션</p>
+                            </div>
+                            <div class="icon-img on">
+                                <img src="~/Images/why_icon2_on.png" />
+                            </div>
+                            <div class="icon-img off">
+                                <img src="~/Images/why_icon2_off.png" />
+                            </div>
+                        </div>
+                        <div class="header-icon__list off">
+                            <div class="icon-txt">
+                                <p class="icon-txt__eng">Our Strength</p>
+                                <p class="icon-txt__kr">강점</p>
+                            </div>
+                            <div class="icon-img on">
+                                <img src="~/Images/why_icon3_on.png" />
+                            </div>
+                            <div class="icon-img off">
+                                <img src="~/Images/why_icon3_off.png" />
+                            </div>
+                        </div>
+                        <div class="header-icon__list off">
+                            <div class="icon-txt">
+                                <p class="icon-txt__eng">Performance</p>
+                                <p class="icon-txt__kr">주요성과</p>
+                            </div>
+                            <div class="icon-img on">
+                                <img src="~/Images/why_icon4_on.png" />
+                            </div>
+                            <div class="icon-img off">
+                                <img src="~/Images/why_icon4_off.png" />
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <section class="contents">
+                <div class="sub-main__cont">
+                    <div class="about-item__box">
+                        <div class="about__item">
+                            <h3 class="about-page__title">고객을 위한 말씀</h3>
+                            <div class="about__item--cont">
+                                <div class="customer-cont">
+                                    <div class="customer-cont__img">
+                                        <div class="customer-cont__txt">
+                                            <img src="~/Images/network_img2.png" />
+                                            <p class="customer-cont__txt1">고객 감동이라는 목표<span class="customer-cont__txt2">아래</span></p>
+                                            <p class="customer-cont__txt2">
+                                                고객이 있는 곳이면 어디든지 태화엘앤씨(주)는 달려 갈 것이며,<br />
+                                                고객의 어떠한 요구에도 저희는 고객의 입장에서 생각 할 것입니다.
+                                            </p>
+                                            <p class="customer-cont__txt2">
+                                                고객 분들께 보다<br />
+                                                <span>신속,정확,안전,경제적인 서비스 제공<span style="color:#fff;">을 </span></span><br />약속드립니다.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sub-main__cont" style="display:none;">
+                    <div class="about-item__box">
+                        <div class="about__item">
+                            <h3 class="about-page__title">가치 & 미션</h3>
+                            <div class="about__item--cont">
+                                <div class="value-cont">
+                                    <div class="value-cont__tit">
+                                        <div class="value-cont__title">
+                                            <img src="~/Images/value_img1.png" />
+                                            <p>고객 최우선</p>
+                                        </div>
+                                    </div>
+                                    <div class="value-cont__item">
+                                        <div class="value-cont__item__title">
+                                            <p>Core Value</p>
+                                        </div>
+                                        <div class="value-cont__item-cont">
+                                            <img src="~/Images/core_img1.jpg" class="core_img1-pc" />
+                                            <img src="~/Images/core_img1-mo.jpg" class="core_img1-mo" />
+                                        </div>
+                                    </div>
+                                    <div class="value-cont__item2">
+                                        <div class="value-cont__item2__title">
+                                            <p>Mission</p>
+                                        </div>
+                                        <div class="value-cont__item2-cont">
+                                            <div class="value-cont__item2-list">
+                                                <p class="value-cont-list__title1">고객을 위한<br />서비스 경쟁력 보유</p>
+                                            </div>
+                                            <div class="value-cont__item2-list">
+                                                <p class="value-cont-list__title2">고객의 성장과<br />함께하는 기업</p>
+                                            </div>
+                                            <div class="value-cont__item2-list">
+                                                <p class="value-cont-list__title3">고객만족도<br />최우선 목표</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sub-main__cont" style="display:none;">
+                    <div class="about-item__box">
+                        <div class="about__item">
+                            <h3 class="about-page__title">강점</h3>
+                            <div class="about__item--cont">
+                                <div class="strength-cont">
+                                    <div class="strength-cont__img">
+                                        <div class="strength-cont__card-list">
+                                            <div class="strength__card-list">
+                                                <div class="strength__card">
+                                                    <p class="strength__card__title">하나.</p>
+                                                    <p class="strength__card-cont1">1988년 창립이래 지금까지<br />축척 된 영업 및 업무 KNOW-HOW</p>
+                                                    <p class="strength__card-cont2">지나온 시간에 비례하는 경험은<br />누구도 간과할 수 없는 큰 자산 입니다.</p>
+                                                    <p style="visibility:hidden;">.</p>
+                                                </div>
+                                                <div class="strength__card">
+                                                    <p class="strength__card__title">둘.</p>
+                                                    <p class="strength__card-cont1">선사 및 항공사 등 국내외 운송업체와<br />전략적 제휴로 경쟁력 있는 운임 제공</p>
+                                                    <p class="strength__card-cont2">태화엘앤씨의 경쟁력이<br />곧 고객 여러분들의 자산입니다.</p>
+                                                    <p style="visibility:hidden;">.</p>
+                                                </div>
+                                                <div class="strength__card">
+                                                    <p class="strength__card__title">셋.</p>
+                                                    <p class="strength__card-cont1">전세계 파트너를 통해 부킹부터<br /> 국내운송, 도착지 통관, 현지운송까지<br />Total 서비스 제공</p>
+                                                    <p class="strength__card-cont2">불필요한 시간과 그에 따른 고객붙들의<br />추가비용 발생을 완벽하게 차단합니다.</p>
+                                                </div>
+                                            </div>
+                                            <div class="strength__card-list">
+                                                <div class="strength__card">
+                                                    <p class="strength__card__title">넷.</p>
+                                                    <p class="strength__card-cont1">최적 운송 루트 제안으로<br />고객 편의성 최우선 고려</p>
+                                                    <p class="strength__card-cont2">다양한 화물의 특성을 고려하여<br />고객분들의 소중한 자산을 안전하게 책임지겠습니다.</p>
+                                                </div>
+                                                <div class="strength__card">
+                                                    <p class="strength__card__title">다섯.</p>
+                                                    <p class="strength__card-cont1">태화엘앤씨(주) 모든 임직원의<br />고객 우선주의 정신</p>
+                                                    <p class="strength__card-cont2">태화엘앤씨는 고객 여러분들께서 만들어 주셨습니다.<br />앞으로 더욱 보답하겠습니다.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sub-main__cont" style="display:none;">
+                    <div class="about-item__box">
+                        <div class="about__item">
+                            <h3 class="about-page__title">주요성과</h3>
+                            <div class="about__item--cont">
+                                <div class="Performance-cont">
+                                    <div class="Performance-cont__box1">
+                                        <img src="~/Images/history_right.png" />
+                                        <div class="Performance-cont__img-area">
+                                            <div class="Performance-cont1__box">
+                                                <div class="Performance__img"></div>
+                                            </div>
+                                        </div>
+                                        <div class="Performance-cont__box__txt">
+                                            <div class="Performance-cont__box__title">
+                                                <p class="year">2020~</p>
+                                            </div>
+                                            <div class="Performance-cont__box__list">
+                                                <div class="Performance-list">
+                                                    <p class="Performance-list__title">2024.02</p>
+                                                    <p class="Performance-list__cont">중국 대곡전자유한회사와 한국 내 단독 대리점 계약 체결</p>
+                                                </div>
+                                                <div class="Performance-list">
+                                                    <p class="Performance-list__title">2023.12</p>
+                                                    <p class="Performance-list__cont">카프로 발연황산 운송 대리점 체결</p>
+                                                </div>
+                                                <div class="Performance-list">
+                                                    <p class="Performance-list__title">2023.09</p>
+                                                    <p class="Performance-list__cont">삼성SDS 해상운송 물류협력사 등록</p>
+                                                </div>
+                                                <div class="Performance-list">
+                                                    <p class="Performance-list__title">2023.08</p>
+                                                    <p class="Performance-list__cont">현대로템 물류협력사 등록</p>
+                                                </div>
+                                                <div class="Performance-list">
+                                                    <p class="Performance-list__title">2022.12</p>
+                                                    <p class="Performance-list__cont">풍산(방산부문) 해운,항공수출 물류협력사 등록</p>
+                                                </div>
+                                                <div class="Performance-list">
+                                                    <p class="Performance-list__title">2019.06</p>
+                                                    <p class="Performance-list__cont">한국 BASF 산화에틸렌 판매계약 체결</p>
+                                                </div>
+                                                <div class="Performance-list">
+                                                    <p class="Performance-list__title">2017.07</p>
+                                                    <p class="Performance-list__cont">해브앤비(닥터자르트) 항공수출 계약 체결</p>
+                                                </div>
+                                                <div class="Performance-list">
+                                                    <p class="Performance-list__title">2016.04</p>
+                                                    <p class="Performance-list__cont">KPX 산화에틸렌 판매계약 체결</p>
+                                                </div>
+                                                <div class="Performance-list">
+                                                    <p class="Performance-list__title">2015.06</p>
+                                                    <p class="Performance-list__cont">금호석유화학, NH케미칼, 코린화학 산화에틸렌 판매계약 체결</p>
+                                                </div>
+                                                <div class="Performance-list">
+                                                    <p class="Performance-list__title">2015.03</p>
+                                                    <p class="Performance-list__cont">풍산(민수부문) 해운,항공수출 계약 체결</p>
+                                                </div>
+                                                <div class="Performance-list">
+                                                    <p class="Performance-list__title">2013.10</p>
+                                                    <p class="Performance-list__cont">한국전력기술 협력업체 등록</p>
+                                                </div>
+                                                <div class="Performance-list">
+                                                    <p class="Performance-list__title">2013.04</p>
+                                                    <p class="Performance-list__cont">대한유화 산화에틸렌 판매 대리점 계약 체결</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="Performance-cont__box2">
+                                        <img src="~/Images/history_left.png" />
+                                        <div class="Performance-cont__box__txt">
+                                            <div class="Performance-cont__box__title">
+                                                <p class="year">2010~</p>
+                                            </div>
+                                            <div class="Performance-cont__box__list">
+                                                <div class="Performance-list">
+                                                    <p class="Performance-list__title">2008.09</p>
+                                                    <p class="Performance-list__cont">삼성토탈(현,한화토탈에너지스) 항공 수출입 계약</p>
+                                                </div>
+                                                <div class="Performance-list">
+                                                    <p class="Performance-list__title">2006.07</p>
+                                                    <p class="Performance-list__cont">삼성코닝(현,삼성코닝더드밴스드글라스) 항공 수출 계약</p>
+                                                </div>
+                                                <div class="Performance-list">
+                                                    <p class="Performance-list__title">2006.05</p>
+                                                    <p class="Performance-list__cont">르노삼성자동차(현,르노자동차) 항공 수출입 계약</p>
+                                                </div>
+                                                <div class="Performance-list">
+                                                    <p class="Performance-list__title">2005.12</p>
+                                                    <p class="Performance-list__cont">삼성정밀화학(현,롯데케미칼) 화물운송 계약</p>
+                                                </div>
+                                                <div class="Performance-list">
+                                                    <p class="Performance-list__title">2003.12</p>
+                                                    <p class="Performance-list__cont">코엑스 물류업체 등록</p>
+                                                </div>
+                                                <div class="Performance-list">
+                                                    <p class="Performance-list__title">2003.11</p>
+                                                    <p class="Performance-list__cont">오리온 항공 수입 계약</p>
+                                                </div>
+                                                <div class="Performance-list">
+                                                    <p class="Performance-list__title">2002.05</p>
+                                                    <p class="Performance-list__cont">KBS 물류업체 등록</p>
+                                                </div>
+                                                <div class="Performance-list">
+                                                    <p class="Performance-list__title">2001.08</p>
+                                                    <p class="Performance-list__cont">제일모직(현,롯데케미칼) 항공 수출입 계약 체결</p>
+                                                </div>
+                                                <div class="Performance-list">
+                                                    <p class="Performance-list__title">2000.12</p>
+                                                    <p class="Performance-list__cont">한솔LCD(현,한솔테크닉스) 물류 계약 체결</p>
+                                                </div>
+                                                <div class="Performance-list">
+                                                    <p class="Performance-list__title">2000.05</p>
+                                                    <p class="Performance-list__cont">한국전력 국외운송관련 협력업체 등록</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="Performance-cont__img-area">
+                                            <div class="Performance-cont2__box">
+                                                <div class="Performance__img"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="Performance-cont__box3">
+                                        <img src="~/Images/history_right.png" />
+                                        <div class="Performance-cont__img-area">
+                                            <div class="Performance-cont3__box">
+                                                <div class="Performance__img"></div>
+                                            </div>
+                                        </div>
+                                        <div class="Performance-cont__box__txt">
+                                            <div class="Performance-cont__box__title">
+                                                <p class="year">1988~</p>
+                                            </div>
+                                            <div class="Performance-cont__box__list">
+                                                <div class="Performance-list">
+                                                    <p class="Performance-list__title">1999.06</p>
+                                                    <p class="Performance-list__cont">한국전력공사 협력업체 등록(북미지역)</p>
+                                                </div>
+                                                <div class="Performance-list">
+                                                    <p class="Performance-list__title">1999.06</p>
+                                                    <p class="Performance-list__cont">페어챠일드 반도체 항공 수출 계약 체결</p>
+                                                </div>
+                                                <div class="Performance-list">
+                                                    <p class="Performance-list__title">1997.06</p>
+                                                    <p class="Performance-list__cont">삼성전자 반도체 부분 항공 수출 계약 체결</p>
+                                                </div>
+                                                <div class="Performance-list">
+                                                    <p class="Performance-list__title">1996.06</p>
+                                                    <p class="Performance-list__cont">삼성석유화학(현,한화임펙트) 항공 수출입 계약 체결</p>
+                                                </div>
+                                                <div class="Performance-list">
+                                                    <p class="Performance-list__title">1995.07</p>
+                                                    <p class="Performance-list__cont">삼성전기 항공 수출입 계약 체결</p>
+                                                </div>
+                                                <div class="Performance-list">
+                                                    <p class="Performance-list__title">1995.06</p>
+                                                    <p class="Performance-list__cont">삼성전자 항공 수출입 계약 체결</p>
+                                                </div>
+                                                <div class="Performance-list">
+                                                    <p class="Performance-list__title">1992.04</p>
+                                                    <p class="Performance-list__cont">NIKE 물류부분 수출입 계약 체결</p>
+                                                </div>
+                                                <div class="Performance-list">
+                                                    <p class="Performance-list__title">1991.04</p>
+                                                    <p class="Performance-list__cont">삼성물산 항공 수출 계약 체결</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    }
+    else
+    {
+        <main class="container">
+            <div class="sub-header">
+                <section class="contents sub-header__cont">
+                    <div class="sub-header__title">
+                        <p>
+                            WHY<br />
+                            TAEHWA L&C?
+                        </p>
+                    </div>
+                    <div class="sub-header__icon">
+                        <div class="header-icon__list en on">
+                            <div class="icon-txt">
+                                <p class="icon-txt__eng en">Suggestions for customers</p>
+                            </div>
+                            <div class="icon-img on">
+                                <img src="~/Images/why_icon1_on.png" />
+                            </div>
+                            <div class="icon-img off">
+                                <img src="~/Images/why_icon1_off.png" />
+                            </div>
+                        </div>
+                        <div class="header-icon__list en off">
+                            <div class="icon-txt">
+                                <p class="icon-txt__eng en">Core value&Mission</p>
+                            </div>
+                            <div class="icon-img on">
+                                <img src="~/Images/why_icon2_on.png" />
+                            </div>
+                            <div class="icon-img off">
+                                <img src="~/Images/why_icon2_off.png" />
+                            </div>
+                        </div>
+                        <div class="header-icon__list en off">
+                            <div class="icon-txt">
+                                <p class="icon-txt__eng en">Our Strength</p>
+                            </div>
+                            <div class="icon-img on">
+                                <img src="~/Images/why_icon3_on.png" />
+                            </div>
+                            <div class="icon-img off">
+                                <img src="~/Images/why_icon3_off.png" />
+                            </div>
+                        </div>
+                        <div class="header-icon__list en off">
+                            <div class="icon-txt">
+                                <p class="icon-txt__eng en">Main Performance</p>
+                            </div>
+                            <div class="icon-img on">
+                                <img src="~/Images/why_icon4_on.png" />
+                            </div>
+                            <div class="icon-img off">
+                                <img src="~/Images/why_icon4_off.png" />
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <section class="contents">
+                <div class="sub-main__cont">
+                    <div class="about-item__box">
+                        <div class="about__item">
+                            <h3 class="about-page__title">Suggestions for Customers</h3>
+                            <div class="about__item--cont">
+                                <div class="customer-cont">
+                                    <div class="customer-cont__img">
+                                        <div class="customer-cont__txt">
+                                            <img src="~/Images/network_img2.png" />
+                                            <p class="customer-cont__txt1">To impress customers,</p>
+                                            <p class="customer-cont__txt2">
+                                                Taehwa L&C Co., Ltd. will run to the customers wherever they are,<br />
+                                                and will think from the customer's point of view to any customer's needs.
+                                            </p>
+                                            <p class="customer-cont__txt2">
+                                                We promise<br style="display:block;" />
+                                                <span>to provide faster, more accurate, safer, and more economical services</span><br style="display:block;" />
+                                                to our customers.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sub-main__cont" style="display:none;">
+                    <div class="about-item__box">
+                        <div class="about__item">
+                            <h3 class="about-page__title">Core Value & Mission</h3>
+                            <div class="about__item--cont">
+                                <div class="value-cont">
+                                    <div class="value-cont__tit">
+                                        <div class="value-cont__title en">
+                                            <img src="~/Images/value_img1.png" />
+                                            <p>Customers First</p>
+                                        </div>
+                                    </div>
+                                    <div class="value-cont__item">
+                                        <div class="value-cont__item__title">
+                                            <p>Core Value</p>
+                                        </div>
+                                        <div class="value-cont__item-cont">
+                                            <img src="~/Images/core_img1_en.jpg" class="core_img1-pc" />
+                                            <img src="~/Images/core_img1_en-mo.jpg" class="core_img1-mo" />
+                                        </div>
+                                    </div>
+                                    <div class="value-cont__item2">
+                                        <div class="value-cont__item2__title">
+                                            <p>Mission</p>
+                                        </div>
+                                        <div class="value-cont__item2-cont">
+                                            <div class="value-cont__item2-list">
+                                                <p class="value-cont-list__title1">Possession of service<br />competitiveness for customers</p>
+                                            </div>
+                                            <div class="value-cont__item2-list">
+                                                <p class="value-cont-list__title2">The company that<br />grows with customers</p>
+                                            </div>
+                                            <div class="value-cont__item2-list">
+                                                <p class="value-cont-list__title3">The first goal of<br />satisfaction</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sub-main__cont" style="display:none;">
+                    <div class="about-item__box">
+                        <div class="about__item">
+                            <h3 class="about-page__title">Our Strength</h3>
+                            <div class="about__item--cont">
+                                <div class="strength-cont">
+                                    <div class="strength-cont__img en">
+                                        <div class="strength-cont__card-list">
+                                            <div class="strength__card-list">
+                                                <div class="strength__card">
+                                                    <p class="strength__card__title">One.</p>
+                                                    <p class="strength__card-cont1" style="word-break:break-word; white-space:unset;">Sales and business know-how accumulated<br />since its foundation in 1988</p>
+                                                    <p class="strength__card-cont2">Experience proportional to the time that<br />has passed is a big asset that no one can overlook.</p>
+                                                    <p style="visibility:hidden;">.</p>
+                                                </div>
+                                                <div class="strength__card">
+                                                    <p class="strength__card__title">Two.</p>
+                                                    <p class="strength__card-cont1" style="word-break: break-word; white-space: unset;">Provision of competitive fares through strategic alliances with<br />domestic and overseas carriers such as shipping companies, airlines, etc.</p>
+                                                    <p class="strength__card-cont2">Taehwa L&C's competitiveness<br />is your asset.</p>
+                                                    <p style="visibility:hidden;">.</p>
+                                                </div>
+                                                <div class="strength__card">
+                                                    <p class="strength__card__title">Three.</p>
+                                                    <p class="strength__card-cont1" style="word-break: break-word; white-space: unset;">Delivery of total services from booking to domestic<br />transportation, destination customs clearance,<br />and local transportation through partners around the world</p>
+                                                    <p class="strength__card-cont2">We completely block unnecessary time<br />and additional costs for customers.</p>
+                                                </div>
+                                            </div>
+                                            <div class="strength__card-list">
+                                                <div class="strength__card">
+                                                    <p class="strength__card__title">Four.</p>
+                                                    <p class="strength__card-cont1" style="word-break: break-word; white-space: unset;">Priority consideration of customer convenience<br />through optimal transportation route proposals</p>
+                                                    <p class="strength__card-cont2">We will be fully responsible for the valuable assets of our customers<br />by considering the characteristics of various cargoes.</p>
+                                                </div>
+                                                <div class="strength__card">
+                                                    <p class="strength__card__title">Five.</p>
+                                                    <p class="strength__card-cont1" style="word-break: break-word; white-space: unset;">Customer-first spirit of all executives<br />and employees of Taehwa L&C Co., Ltd.</p>
+                                                    <p class="strength__card-cont2">Taehwa L&C was made by our customers.<br />We will repay you even more in the future.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sub-main__cont" style="display:none;">
+                    <div class="about-item__box">
+                        <div class="about__item">
+                            <h3 class="about-page__title">Main Performance</h3>
+                            <div class="about__item--cont">
+                                <div class="Performance-cont">
+                                    <div class="Performance-cont__box1">
+                                        <img src="~/Images/history_right.png" />
+                                        <div class="Performance-cont__img-area">
+                                            <div class="Performance-cont1__box">
+                                                <div class="Performance__img"></div>
+                                            </div>
+                                        </div>
+                                        <div class="Performance-cont__box__txt">
+                                            <div class="Performance-cont__box__title">
+                                                <p class="year">2020~</p>
+                                            </div>
+                                            <div class="Performance-cont__box__list">
+                                                <div class="Performance-list en">
+                                                    <p class="Performance-list__title">February 2024</p>
+                                                    <p class="Performance-list__cont">Concluded a sole agency contract in Korea with Daegok Electronics Co., Ltd. in China.</p>
+                                                </div>
+                                                <div class="Performance-list en">
+                                                    <p class="Performance-list__title">December 2023</p>
+                                                    <p class="Performance-list__cont">Concluded a fuming sulfuric acid transportation agency contract with Capro</p>
+                                                </div>
+                                                <div class="Performance-list en">
+                                                    <p class="Performance-list__title">September 2023</p>
+                                                    <p class="Performance-list__cont">Registered as a maritime transportation logistics partner of Samsung SDS.</p>
+                                                </div>
+                                                <div class="Performance-list en">
+                                                    <p class="Performance-list__title">August 2023</p>
+                                                    <p class="Performance-list__cont">Registered as a logistics partner of Hyundai Rotem.</p>
+                                                </div>
+                                                <div class="Performance-list en">
+                                                    <p class="Performance-list__title">December 2022</p>
+                                                    <p class="Performance-list__cont">Registered as an air export logistics partner of Poongsan Shipping Co., Ltd. (Defense Sector)</p>
+                                                </div>
+                                                <div class="Performance-list en">
+                                                    <p class="Performance-list__title">June 2019</p>
+                                                    <p class="Performance-list__cont">Concluded an ethylene oxide sales contract with BASF Korea.</p>
+                                                </div>
+                                                <div class="Performance-list en">
+                                                    <p class="Performance-list__title">July 2017</p>
+                                                    <p class="Performance-list__cont">Concluded an air export contract with Hanveandbe (Dr. Jart).</p>
+                                                </div>
+                                                <div class="Performance-list en">
+                                                    <p class="Performance-list__title">April 2016</p>
+                                                    <p class="Performance-list__cont">Concluded an ethylene oxide sales contract with KPX.</p>
+                                                </div>
+                                                <div class="Performance-list en">
+                                                    <p class="Performance-list__title">June 2015</p>
+                                                    <p class="Performance-list__cont">Concluded ethylene oxide sales contract with Kumho Petrochemical, NH Chemical, and Korin Chemical Co., Ltd</p>
+                                                </div>
+                                                <div class="Performance-list en">
+                                                    <p class="Performance-list__title">March 2015</p>
+                                                    <p class="Performance-list__cont">Concluded with an air export contract with Poongsan Shipping Co., Ltd. (Civil Service Sector)</p>
+                                                </div>
+                                                <div class="Performance-list en">
+                                                    <p class="Performance-list__title">October 2013</p>
+                                                    <p class="Performance-list__cont">Registered as a partner company of KOPEC Co., Ltd.</p>
+                                                </div>
+                                                <div class="Performance-list en">
+                                                    <p class="Performance-list__title">April 2013</p>
+                                                    <p class="Performance-list__cont">Concluded an ethylene oxide sales contract with Korea Petrochemical Ind. Co., Ltd.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="Performance-cont__box2">
+                                        <img src="~/Images/history_left.png" />
+                                        <div class="Performance-cont__box__txt">
+                                            <div class="Performance-cont__box__title">
+                                                <p class="year">2010~</p>
+                                            </div>
+                                            <div class="Performance-cont__box__list">
+                                                <div class="Performance-list en">
+                                                    <p class="Performance-list__title">September 2008</p>
+                                                    <p class="Performance-list__cont">Concluded an air export/import contract with Samsung Total (Present, Hanwha Totalenergies).</p>
+                                                </div>
+                                                <div class="Performance-list en">
+                                                    <p class="Performance-list__title">July 2006</p>
+                                                    <p class="Performance-list__cont">Concluded an air export contract with Samsung Corning (Present, Samsung Corning Advanced Glass).</p>
+                                                </div>
+                                                <div class="Performance-list en">
+                                                    <p class="Performance-list__title">May 2006</p>
+                                                    <p class="Performance-list__cont">Concluded an air export contract with Renault Samsung Co., Ltd. (Present, Renault Co., Ltd.).</p>
+                                                </div>
+                                                <div class="Performance-list en">
+                                                    <p class="Performance-list__title">December 2005</p>
+                                                    <p class="Performance-list__cont">Concluded a freight transportation contract with Samsung Fine Chemical (Present, Lotte Chemical).</p>
+                                                </div>
+                                                <div class="Performance-list en">
+                                                    <p class="Performance-list__title">December 2003</p>
+                                                    <p class="Performance-list__cont">Registered as a logistics company of KOEX.</p>
+                                                </div>
+                                                <div class="Performance-list en">
+                                                    <p class="Performance-list__title">November 2003</p>
+                                                    <p class="Performance-list__cont">Concluded an air export contract with Orion.</p>
+                                                </div>
+                                                <div class="Performance-list en">
+                                                    <p class="Performance-list__title">May 2002</p>
+                                                    <p class="Performance-list__cont">Registered as a logistics company of KBS.</p>
+                                                </div>
+                                                <div class="Performance-list en">
+                                                    <p class="Performance-list__title">August 2001</p>
+                                                    <p class="Performance-list__cont">Concluded an air export/import contract with Cheil Industries Inc. (Present, Lotte Chemical).</p>
+                                                </div>
+                                                <div class="Performance-list en">
+                                                    <p class="Performance-list__title">December 2000</p>
+                                                    <p class="Performance-list__cont">Concluded a logistics contract with Hansol LCD (Present, Hansol Technics).</p>
+                                                </div>
+                                                <div class="Performance-list en">
+                                                    <p class="Performance-list__title">May 2000</p>
+                                                    <p class="Performance-list__cont">Registered as a partner company related to overseas transportation of KEPCO Co., Ltd.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="Performance-cont__img-area">
+                                            <div class="Performance-cont2__box">
+                                                <div class="Performance__img"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="Performance-cont__box3">
+                                        <img src="~/Images/history_right.png" />
+                                        <div class="Performance-cont__img-area">
+                                            <div class="Performance-cont3__box">
+                                                <div class="Performance__img"></div>
+                                            </div>
+                                        </div>
+                                        <div class="Performance-cont__box__txt">
+                                            <div class="Performance-cont__box__title">
+                                                <p class="year">1988~</p>
+                                            </div>
+                                            <div class="Performance-cont__box__list">
+                                                <div class="Performance-list en">
+                                                    <p class="Performance-list__title">June 1999</p>
+                                                    <p class="Performance-list__cont">Registered as a partner company related to overseas transportation of KEPCO Co., Ltd. (North America)</p>
+                                                </div>
+                                                <div class="Performance-list en">
+                                                    <p class="Performance-list__title">June 1999</p>
+                                                    <p class="Performance-list__cont">Concluded an air export contract with Fairchild Semiconductor.</p>
+                                                </div>
+                                                <div class="Performance-list en">
+                                                    <p class="Performance-list__title">June 1997</p>
+                                                    <p class="Performance-list__cont">Concluded a semiconductor division air export contract with Samsung Electronics Semiconductor.</p>
+                                                </div>
+                                                <div class="Performance-list en">
+                                                    <p class="Performance-list__title">June 1996</p>
+                                                    <p class="Performance-list__cont">Concluded an air export/import contract with Samsung Petrochemical (Present, Hanwha Impact).</p>
+                                                </div>
+                                                <div class="Performance-list en">
+                                                    <p class="Performance-list__title">July 1995</p>
+                                                    <p class="Performance-list__cont">Concluded an air export/import contract with Samsung Electro-Mechanics.</p>
+                                                </div>
+                                                <div class="Performance-list en">
+                                                    <p class="Performance-list__title">June 1995</p>
+                                                    <p class="Performance-list__cont">Concluded an air export/import contract with Samsung Electronics.</p>
+                                                </div>
+                                                <div class="Performance-list en">
+                                                    <p class="Performance-list__title">April 1992</p>
+                                                    <p class="Performance-list__cont">Concluded a logistics division air export/import contract with NIKE.</p>
+                                                </div>
+                                                <div class="Performance-list en">
+                                                    <p class="Performance-list__title">April 1991</p>
+                                                    <p class="Performance-list__cont">Concluded an air export contract with Samsung Corporation.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    }
+}

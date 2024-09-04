@@ -1,0 +1,627 @@
+﻿@{
+    Layout = "~/Views/Shared/_SubLayout.cshtml";
+
+    string setLang = "";
+    string browser_lan = Request.UserLanguages[0]; // 브라우저 언어
+    if (!String.IsNullOrEmpty(browser_lan))
+    {
+        setLang = browser_lan;
+    }
+    if (HttpContext.Current.Session["Language"] == null) // 셋팅된 언어가 null이면
+    {
+        HttpContext.Current.Session["Language"] = setLang; // 브라우저 언어로 셋팅                                                       
+    }
+    else // 셋팅된 언어가 null이 아니면(브라우저 로드 후에 클릭하면)
+    {
+        if (HttpContext.Current.Session["Language"].ToString() == "ko")
+        {
+            setLang = "ko";
+            HttpContext.Current.Session["Language"] = setLang;
+        }
+        else
+        {
+            setLang = "en";
+            HttpContext.Current.Session["Language"] = setLang;
+        }
+    }
+}
+@section Container{
+    @if (setLang.Equals("ko")) 
+    {
+        <main class="container">
+            <div class="sub-header">
+                <section class="contents sub-header__cont">
+                    <div class="sub-header__title">
+                        <p class="title-visible" style="visibility:hidden;">.</p>
+                        <p>Recruitment</p>
+                    </div>
+                    <div class="sub-header__icon">
+                        <div class="header-icon__list on">
+                            <div class="icon-txt">
+                                <p class="icon-txt__eng">Talent</p>
+                                <p class="icon-txt__kr">인재상</p>
+                            </div>
+                            <div class="icon-img on">
+                                <img src="~/Images/re_icon1_on.png" />
+                            </div>
+                            <div class="icon-img off">
+                                <img src="~/Images/re_icon1_off.png" />
+                            </div>
+                        </div>
+                        <div class="header-icon__list off">
+                            <div class="icon-txt">
+                                <p class="icon-txt__eng">Summary</p>
+                                <p class="icon-txt__kr">모집요강</p>
+                            </div>
+                            <div class="icon-img on width30">
+                                <img src="~/Images/re_icon2_on.png" />
+                            </div>
+                            <div class="icon-img off width30">
+                                <img src="~/Images/re_icon2_off.png" />
+                            </div>
+                        </div>
+                        <div class="header-icon__list off">
+                            <div class="icon-txt">
+                                <p class="icon-txt__eng">Recruiting process</p>
+                                <p class="icon-txt__kr">채용절차</p>
+                            </div>
+                            <div class="icon-img on width30">
+                                <img src="~/Images/re_icon3_on.png" />
+                            </div>
+                            <div class="icon-img off width30">
+                                <img src="~/Images/re_icon3_off.png" />
+                            </div>
+                        </div>
+                        <div class="header-icon__list off recu">
+                            <div class="icon-txt">
+                                <p class="icon-txt__eng">Recruitment</p>
+                                <p class="icon-txt__kr">모집공고</p>
+                            </div>
+                            <div class="icon-img on">
+                                <img src="~/Images/re_icon4_on.png" />
+                            </div>
+                            <div class="icon-img off">
+                                <img src="~/Images/re_icon4_off.png" />
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <section class="contents">
+                <div class="sub-main__cont" id="talent">
+                    <div class="about-item__box">
+                        <div class="about__item">
+                            <h3 class="about-page__title">인재상</h3>
+                            <div class="about__item--cont">
+                                <div class="talent-cont">
+                                    <div class="talent-cont-list">
+                                        <img src="~/Images/talent_pc.jpg" class="pc" />
+                                        <img src="~/Images/talent_mo.jpg" class="mo" />
+                                    </div>
+                                    <div class="talent-cont__txt">
+                                        <p class="talent-cont__txt-black">태화엘앤씨는</p>
+                                        <p class="talent-cont__txt-orange">여러분의 성공<span class="talent-cont__txt-black">을 위하여</span><br /><span class="talent-cont__txt-orange"> 함께 고민하고 성장하겠습니다</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sub-main__cont" id="summary" style="display:none;">
+                    <div class="about-item__box">
+                        <div class="about__item">
+                            <h3 class="about-page__title">모집요강</h3>
+                            <div class="about__item--cont">
+                                <div class="summary-cont">
+                                    <div class="summary-cont-table">
+                                        <div class="summary-cont-table-list">
+                                            <div class="summary-table-header">
+                                                <p>국내 및 해외 영업팀</p>
+                                            </div>
+                                            <div class="summary-table-cont">
+                                                <div class="summary-table-cont__item">
+                                                    <div class="summary-table-cont__item__title">
+                                                        <p>담당업무</p>
+                                                    </div>
+                                                    <div class="summary-table-cont__item--cont">
+                                                        <p>고객 창출, 고객관리</p>
+                                                        <p>세일즈 전략 수립 및 실행</p>
+                                                        <p>마케팅 전략 수립 및 실행</p>
+                                                        <p>시장 동향 분석을 통한 신규사업 발굴</p>
+                                                    </div>
+                                                </div>
+                                                <div class="summary-table-cont__item">
+                                                    <div class="summary-table-cont__item__title">
+                                                        <p>우대조건</p>
+                                                    </div>
+                                                    <div class="summary-table-cont__item--cont">
+                                                        <p>뚜렷한 목표의식을 바탕으로 세일즈를 주도해나가실 수 있는 분</p>
+                                                        <p>트렌드에 민감하고 Networking & Communicaion에 강점이 있으신 분</p>
+                                                        <p>영어 혹은 중국어 회화 가능자</p>
+                                                        <p>물류 업무 유경험자</p>
+                                                        <p>해외여행 결격사유가 없으신 분</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="summary-cont-table">
+                                        <div class="summary-cont-table-list">
+                                            <div class="summary-table-header">
+                                                <p>해상 및 항공 업무팀</p>
+                                            </div>
+                                            <div class="summary-table-cont">
+                                                <div class="summary-table-cont__item">
+                                                    <div class="summary-table-cont__item__title">
+                                                        <p>담당업무</p>
+                                                    </div>
+                                                    <div class="summary-table-cont__item--cont">
+                                                        <p>고객사,파트너사 간 커뮤니케이션</p>
+                                                        <p>국내/해외 운송 현황 모니터링 및 선적 정보 공유</p>
+                                                        <p>스페이스 확보 관련 항공사, 선사 대응 및 운임 협의</p>
+                                                        <p>물류 운영, 비용 정산 및 Spot 운송 대응</p>
+                                                        <p>원가 관리 및 신규 파트너 창출을 통한 수익성 개선</p>
+                                                    </div>
+                                                </div>
+                                                <div class="summary-table-cont__item">
+                                                    <div class="summary-table-cont__item__title">
+                                                        <p>우대조건</p>
+                                                    </div>
+                                                    <div class="summary-table-cont__item--cont">
+                                                        <p>책임 의식 및 주도적 문제해결 역량을 가지신 분</p>
+                                                        <p>커뮤니케이션 능력과 고객중심의 서비스 마인드를 가지신 분</p>
+                                                        <p>긍정적이고 밝은 성격을 가지신 분</p>
+                                                        <p>다양한 상황에 빠르게 대처하실 수 있는 분</p>
+                                                        <p>엑셀 데이터 관리 능력 보유 및 ERP 사용 유경험자</p>
+                                                        <p>컴퓨터활용능력 우수자</p>
+                                                        <p>외국어(영어/중국어) 활용 우수자</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sub-main__cont" id="process" style="display:none;">
+                    <div class="about-item__box">
+                        <div class="about__item">
+                            <h3 class="about-page__title">채용절차</h3>
+                            <div class="about__item--cont">
+                                <div class="recruit-cont">
+                                    <div class="recruit-cont__process">
+                                        <img src="~/Images/process_pc.png" class="pc" />
+                                        <img src="~/Images/process_mo.png" class="mo" />
+                                    </div>
+                                    <div class="recruit-cont__txt">
+                                        <div class="recruit-cont__txt__title pc">
+                                            <p class="black">태화엘앤씨는</p>
+                                            <p class="black">채용절차를 간소화하여</p>
+                                            <p class="orange">지원자 여러분의 시간과</p>
+                                            <p class="orange">에너지를 소중히<span class="black"> 여기겠습니다.</span></p>
+                                        </div>
+                                        <div class="recruit-cont__txt__title mo">
+                                            <p class="black">태화엘앤씨는 채용절차를 간소화하여</p>
+                                            <p class="orange">지원자 여러분의 시간과 에너지를 소중히</p>
+                                            <p class="black">여기겠습니다.</p>
+                                        </div>
+                                        <div class="recruit-cont__txt--cont">
+                                            <div class="recruit__step">
+                                                <div class="recruit__step__title">
+                                                    <span class="orange">STEP01.</span><span class="black">원서접수</span>
+                                                </div>
+                                                <div class="recruit__step-cont">
+                                                    <p>홈페이지 recruitment 및 지원하기 항목을 통해 지원서를 접수합니다.</p>
+                                                </div>
+                                            </div>
+                                            <div class="recruit__step">
+                                                <div class="recruit__step__title">
+                                                    <span class="orange">STEP02.</span><span class="black">서류전형</span>
+                                                </div>
+                                                <div class="recruit__step-cont">
+                                                    <p>기본적인 자격요건과 자기소개서를 통해 1차적인 역량 검증을 진행합니다.</p>
+                                                </div>
+                                            </div>
+                                            <div class="recruit__step">
+                                                <div class="recruit__step__title">
+                                                    <span class="orange">STEP03.</span><span class="black">면접전형</span>
+                                                </div>
+                                                <div class="recruit__step-cont">
+                                                    <p>1차~2차에 걸쳐 단계별 면접을 진행합니다.</p>
+                                                    <p>직무역량과 인성, 조직적합성 등의 개인역량에 대해 심층 검증하는 단계입니다.</p>
+                                                    <p>면접은 실무면접 및 필요 시, 임원면접으로 진행되며 모집부문에 맞는 인재를 찾기 위해 노력합니다.</p>
+                                                    <p>업무별로 면접 형태 및 단계가 상이하므로 상세 채용공고를 확인해 주시기 바랍니다.</p>
+                                                </div>
+                                            </div>
+                                            <div class="recruit__step">
+                                                <div class="recruit__step__title">
+                                                    <span class="orange">STEP04.</span><span class="black">최종합격</span>
+                                                </div>
+                                                <div class="recruit__step-cont">
+                                                    <p>태화엘앤씨와 함께 성과를 이뤄냅니다.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sub-main__cont" id="notice" style="display:none">
+                    <div class="about-item__box">
+                        <div class="about__item">
+                            <h3 class="about-page__title">모집공고</h3>
+                            <div class="about__item--cont">
+                                <div class="notice-cont">
+                                    <div class="board_list">
+                                        @*<table class="notice-table">
+                                                <colgroup>
+                                                    <col />
+                                                    <col style="width:8em" />
+                                                    <col style="width:10em" />
+                                                </colgroup>
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">제목</th>
+                                                        <th scope="col">작성자</th>
+                                                        <th scope="col">등록일</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="Notice_Area">
+                                                    <tr>
+                                                        <td name="btn_NoticeView">[모집공고] 태화엘엔씨와 함께할 인재 모집공고 입니다.</td>
+                                                        <td class="text-center">오승택</td>
+                                                        <td class="text-center">2024-05-23</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td name="btn_NoticeView">[모집공고] 태화엘엔씨와 함께할 인재 모집공고 입니다.</td>
+                                                        <td class="text-center">오승택</td>
+                                                        <td class="text-center">2024-05-23</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td name="btn_NoticeView">[모집공고] 태화엘엔씨와 함께할 인재 모집공고 입니다.</td>
+                                                        <td class="text-center">오승택</td>
+                                                        <td class="text-center">2024-05-23</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td name="btn_NoticeView">[모집공고] 태화엘엔씨와 함께할 인재 모집공고 입니다.</td>
+                                                        <td class="text-center">오승택</td>
+                                                        <td class="text-center">2024-05-23</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>*@
+                                    </div>
+                                    <div class="paging-area" id="Paging_List_Area">
+                                        @*<div class="paging_in">
+                                                <a href="javascript:;" class="prev-first"><span>맨앞으로</span></a>
+                                                <a href="javascript:;" class="prev"><span>이전으로</span></a>
+                                                <span class="number"><span class="active">1</span></span>
+                                                <a href="javascript:;" class="next"><span>다음으로</span></a>
+                                                <a href="javascript:;" class="next-last"><span>맨뒤로</span></a>
+                                            </div>*@
+                                    </div>
+                                    <div class="board-search-01">
+                                        <fieldset>
+                                            <legend class="sr-only">검색</legend>
+                                            <select name="sf1" id="sf1" class="select-type-01">
+                                                <option value="TITLE">제목</option>
+                                                <option value="CONTENT">내용</option>
+                                            </select>
+                                            <input type="text" title="검색어" id="stx" class="input-type-01" name="find_word" value="" />
+                                            <input type="button" value="검색" id="btn_search" class="btn btn-color-01" />
+                                        </fieldset>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    }
+    else 
+    {
+        <main class="container">
+            <div class="sub-header">
+                <section class="contents sub-header__cont">
+                    <div class="sub-header__title">
+                        <p class="title-visible" style="visibility:hidden;">.</p>
+                        <p>Recruitment</p>
+                    </div>
+                    <div class="sub-header__icon">
+                        <div class="header-icon__list en on">
+                            <div class="icon-txt">
+                                <p class="icon-txt__eng en">Concept of Talents</p>
+                            </div>
+                            <div class="icon-img on">
+                                <img src="~/Images/re_icon1_on.png" />
+                            </div>
+                            <div class="icon-img off">
+                                <img src="~/Images/re_icon1_off.png" />
+                            </div>
+                        </div>
+                        <div class="header-icon__list en off">
+                            <div class="icon-txt">
+                                <p class="icon-txt__eng en">Application Handbook</p>
+                            </div>
+                            <div class="icon-img on width30">
+                                <img src="~/Images/re_icon2_on.png" />
+                            </div>
+                            <div class="icon-img off width30">
+                                <img src="~/Images/re_icon2_off.png" />
+                            </div>
+                        </div>
+                        <div class="header-icon__list en off">
+                            <div class="icon-txt">
+                                <p class="icon-txt__eng en">Recruiting Process</p>
+                            </div>
+                            <div class="icon-img on width30">
+                                <img src="~/Images/re_icon3_on.png" />
+                            </div>
+                            <div class="icon-img off width30">
+                                <img src="~/Images/re_icon3_off.png" />
+                            </div>
+                        </div>
+                        <div class="header-icon__list en off recu">
+                            <div class="icon-txt">
+                                <p class="icon-txt__eng en">Recruit Notice</p>
+                            </div>
+                            <div class="icon-img on">
+                                <img src="~/Images/re_icon4_on.png" />
+                            </div>
+                            <div class="icon-img off">
+                                <img src="~/Images/re_icon4_off.png" />
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <section class="contents">
+                <div class="sub-main__cont" id="talent">
+                    <div class="about-item__box">
+                        <div class="about__item">
+                            <h3 class="about-page__title">Concept of Talents</h3>
+                            <div class="about__item--cont">
+                                <div class="talent-cont">
+                                    <div class="talent-cont-list">
+                                        <img src="~/Images/talent_pc_en.jpg" class="pc" />
+                                        <img src="~/Images/talent_mo_en.jpg" class="mo" />
+                                    </div>
+                                    <div class="talent-cont__txt">
+                                        <p class="talent-cont__txt-black">Taehwa L&C</p>
+                                        <p class="talent-cont__txt-orange">will consider and grow together<span class="talent-cont__txt-black"> for</span><br /><span class="talent-cont__txt-orange"> your success.</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sub-main__cont" id="summary" style="display:none;">
+                    <div class="about-item__box">
+                        <div class="about__item">
+                            <h3 class="about-page__title">Application Handbook</h3>
+                            <div class="about__item--cont">
+                                <div class="summary-cont">
+                                    <div class="summary-cont-table">
+                                        <div class="summary-cont-table-list">
+                                            <div class="summary-table-header">
+                                                <p>Domestic and Overseas Sales Team</p>
+                                            </div>
+                                            <div class="summary-table-cont">
+                                                <div class="summary-table-cont__item">
+                                                    <div class="summary-table-cont__item__title en">
+                                                        <p>Assigned<br />Tasks</p>
+                                                    </div>
+                                                    <div class="summary-table-cont__item--cont">
+                                                        <p>Customer management, customer creation </p>
+                                                        <p>Establishment and execution of sales strategies</p>
+                                                        <p>Establishment and execution of marketing strategies</p>
+                                                        <p>New business discovery through market trend analysis</p>
+                                                    </div>
+                                                </div>
+                                                <div class="summary-table-cont__item">
+                                                    <div class="summary-table-cont__item__title en">
+                                                        <p>Preferential<br />Conditions</p>
+                                                    </div>
+                                                    <div class="summary-table-cont__item--cont">
+                                                        <p>A person who can lead the sales based on a clear sense of goal</p>
+                                                        <p>A person who is trend-conscious and has strengths in networking and communication</p>
+                                                        <p>A person who can speak English or Chinese</p>
+                                                        <p>A person who has experience in the logistics business</p>
+                                                        <p>A person who doesn't have a reason to be disqualified for an overseas trip</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="summary-cont-table">
+                                        <div class="summary-cont-table-list">
+                                            <div class="summary-table-header">
+                                                <p>Marine and Air Business Team</p>
+                                            </div>
+                                            <div class="summary-table-cont">
+                                                <div class="summary-table-cont__item">
+                                                    <div class="summary-table-cont__item__title en">
+                                                        <p>Assigned<br />Tasks</p>
+                                                    </div>
+                                                    <div class="summary-table-cont__item--cont">
+                                                        <p>Communication with customer companies and partners</p>
+                                                        <p>Monitoring the status of domestic/overseas transportation and sharing shipping information</p>
+                                                        <p>Response to airlines and shipping companies related to securing space and discussion of freight rates with them</p>
+                                                        <p>Logistics operations, cost settlement, and spot transportation response</p>
+                                                        <p>Improvement of profitability through cost management and new partner creation</p>
+                                                    </div>
+                                                </div>
+                                                <div class="summary-table-cont__item">
+                                                    <div class="summary-table-cont__item__title en">
+                                                        <p>Preferential<br />Conditions</p>
+                                                    </div>
+                                                    <div class="summary-table-cont__item--cont">
+                                                        <p>A person who has a sense of responsibility and leading problem-solving skills</p>
+                                                        <p>A person who has communication skills and a customer-centered service mindset</p>
+                                                        <p>A person who has a positive and bright personality</p>
+                                                        <p>A person who can deal with various situations quickly</p>
+                                                        <p>A person who has Excel data management capabilities and experience in using ERP</p>
+                                                        <p>A person who is excellent in computer utilization</p>
+                                                        <p>A person who is excellent in foreign languages (English/Chinese)</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sub-main__cont" id="process" style="display:none;">
+                    <div class="about-item__box">
+                        <div class="about__item">
+                            <h3 class="about-page__title">Recruiting Process</h3>
+                            <div class="about__item--cont">
+                                <div class="recruit-cont">
+                                    <div class="recruit-cont__process">
+                                        <img src="~/Images/process_pc_en.png" class="pc" />
+                                        <img src="~/Images/process_mo_en.png" class="mo" />
+                                    </div>
+                                    <div class="recruit-cont__txt">
+                                        <div class="recruit-cont__txt__title pc">
+                                            <p class="black">Taehwa L&C will</p>
+                                            <p class="black">simplify the recruitment process</p>
+                                            <p class="orange">to value your time</p>
+                                            <p class="orange">and energy.</p>
+                                        </div>
+                                        <div class="recruit-cont__txt__title mo">
+                                            <p class="black">Taehwa L&C will</p>
+                                            <p class="black">simplify the recruitment process</p>
+                                            <p class="orange">to value your time and energy.</p>                                            
+                                        </div>
+                                        <div class="recruit-cont__txt--cont">
+                                            <div class="recruit__step">
+                                                <div class="recruit__step__title">
+                                                    <span class="orange">STEP01.</span><span class="black">Application</span>
+                                                </div>
+                                                <div class="recruit__step-cont">
+                                                    <p>The Company accepts the application through the recruitment and application items on the homepage.</p>
+                                                </div>
+                                            </div>
+                                            <div class="recruit__step">
+                                                <div class="recruit__step__title">
+                                                    <span class="orange">STEP02.</span><span class="black">Document Screening</span>
+                                                </div>
+                                                <div class="recruit__step-cont">
+                                                    <p>Primary competency verification is conducted through the basic qualification requirements and self-introduction letters.</p>
+                                                </div>
+                                            </div>
+                                            <div class="recruit__step">
+                                                <div class="recruit__step__title">
+                                                    <span class="orange">STEP03.</span><span class="black">Interview Screening</span>
+                                                </div>
+                                                <div class="recruit__step-cont">
+                                                    <p>A step-by-step interview is conducted over the first and second rounds.</p>
+                                                    <p>It is the step of in-depth verification of individual competencies such as job competency, personality, organizational suitability, etc.</p>
+                                                    <p>Interviews are practical interviews, which are conducted in the form of executive interviews if necessary, and we strive to find talented people suitable for the recruitment sector.</p>
+                                                    <p>The interview types and stages vary for each job, so please check the detailed job announcement.</p>
+                                                </div>
+                                            </div>
+                                            <div class="recruit__step">
+                                                <div class="recruit__step__title">
+                                                    <span class="orange">STEP04.</span><span class="black">Final Pass</span>
+                                                </div>
+                                                <div class="recruit__step-cont">
+                                                    <p>The applicants achieve results with Taehwa L&C.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sub-main__cont" id="notice" style="display:none">
+                    <div class="about-item__box">
+                        <div class="about__item">
+                            <h3 class="about-page__title">Recruit Notice</h3>
+                            <div class="about__item--cont">
+                                <div class="notice-cont">
+                                    <div class="board_list">
+                                        @*<table class="notice-table">
+                                                <colgroup>
+                                                    <col />
+                                                    <col style="width:8em" />
+                                                    <col style="width:10em" />
+                                                </colgroup>
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">제목</th>
+                                                        <th scope="col">작성자</th>
+                                                        <th scope="col">등록일</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="Notice_Area">
+                                                    <tr>
+                                                        <td name="btn_NoticeView">[모집공고] 태화엘엔씨와 함께할 인재 모집공고 입니다.</td>
+                                                        <td class="text-center">오승택</td>
+                                                        <td class="text-center">2024-05-23</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td name="btn_NoticeView">[모집공고] 태화엘엔씨와 함께할 인재 모집공고 입니다.</td>
+                                                        <td class="text-center">오승택</td>
+                                                        <td class="text-center">2024-05-23</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td name="btn_NoticeView">[모집공고] 태화엘엔씨와 함께할 인재 모집공고 입니다.</td>
+                                                        <td class="text-center">오승택</td>
+                                                        <td class="text-center">2024-05-23</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td name="btn_NoticeView">[모집공고] 태화엘엔씨와 함께할 인재 모집공고 입니다.</td>
+                                                        <td class="text-center">오승택</td>
+                                                        <td class="text-center">2024-05-23</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>*@
+                                    </div>
+                                    <div class="paging-area" id="Paging_List_Area">
+                                        @*<div class="paging_in">
+                                                <a href="javascript:;" class="prev-first"><span>맨앞으로</span></a>
+                                                <a href="javascript:;" class="prev"><span>이전으로</span></a>
+                                                <span class="number"><span class="active">1</span></span>
+                                                <a href="javascript:;" class="next"><span>다음으로</span></a>
+                                                <a href="javascript:;" class="next-last"><span>맨뒤로</span></a>
+                                            </div>*@
+                                    </div>
+                                    <div class="board-search-01">
+                                        <fieldset>
+                                            <legend class="sr-only">Search</legend>
+                                            <select name="sf1" id="sf1" class="select-type-01">
+                                                <option value="TITLE">Title</option>
+                                                <option value="CONTENT">Content</option>
+                                            </select>
+                                            <input type="text" title="검색어" id="stx" class="input-type-01" name="find_word" value="" />
+                                            <input type="button" value="Search" id="btn_search" class="btn btn-color-01" />
+                                        </fieldset>
+                                    </div>                                        
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    }
+    <script>
+        $(document).ready(function () {
+            if (sessionStorage.getItem("notice") == "Y") {
+                $(".recu").click();
+                sessionStorage.setItem("notice", "");
+            }
+        });
+    </script>
+
+    @Scripts.Render("~/Scripts/Recruitment/Cs.js")
+}

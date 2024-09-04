@@ -1,0 +1,1000 @@
+﻿@{
+    Layout = "~/Views/Shared/_SubLayout.cshtml";
+
+    string setLang = "";
+    string browser_lan = Request.UserLanguages[0]; // 브라우저 언어
+    if (!String.IsNullOrEmpty(browser_lan))
+    {
+        setLang = browser_lan;
+    }
+    if (HttpContext.Current.Session["Language"] == null) // 셋팅된 언어가 null이면
+    {
+        HttpContext.Current.Session["Language"] = setLang; // 브라우저 언어로 셋팅                                                       
+    }
+    else // 셋팅된 언어가 null이 아니면(브라우저 로드 후에 클릭하면)
+    {
+        if (HttpContext.Current.Session["Language"].ToString() == "ko")
+        {
+            setLang = "ko";
+            HttpContext.Current.Session["Language"] = setLang;
+        }
+        else
+        {
+            setLang = "en";
+            HttpContext.Current.Session["Language"] = setLang;
+        }
+    }
+}
+@section Container{
+    @if (setLang.Equals("ko"))
+    {
+        <main class="container">
+            <div class="sub-header">
+                <section class="contents sub-header__cont">
+                    <div class="sub-header__title">
+                        <p>
+                            BUSINESS<br />
+                            AREA
+                        </p>
+                    </div>
+                    <div class="sub-header__icon service">
+                        <div class="header-icon__list on sea">
+                            <div class="icon-txt">
+                                <p class="icon-txt__eng">Sea Service</p>
+                                <p class="icon-txt__kr">해상운송</p>
+                            </div>
+                            <div class="icon-img on">
+                                <img src="~/Images/service_icon1_on.png" />
+                            </div>
+                            <div class="icon-img off">
+                                <img src="~/Images/service_icon1_off.png" />
+                            </div>
+                        </div>
+                        <div class="header-icon__list off air">
+                            <div class="icon-txt">
+                                <p class="icon-txt__eng">Air Service</p>
+                                <p class="icon-txt__kr">항공운송</p>
+                            </div>
+                            <div class="icon-img on">
+                                <img src="~/Images/service_icon2_on.png" />
+                            </div>
+                            <div class="icon-img off">
+                                <img src="~/Images/service_icon2_off.png" />
+                            </div>
+                        </div>
+                        <div class="header-icon__list off inland">
+                            <div class="icon-txt">
+                                <p class="icon-txt__eng">Inland Trans</p>
+                                <p class="icon-txt__kr">내륙운송</p>
+                            </div>
+                            <div class="icon-img on">
+                                <img src="~/Images/service_icon3_on.png" />
+                            </div>
+                            <div class="icon-img off">
+                                <img src="~/Images/service_icon3_off.png" />
+                            </div>
+                        </div>
+                        <div class="header-icon__list off house">
+                            <div class="icon-txt">
+                                <p class="icon-txt__eng">W/House</p>
+                                <p class="icon-txt__kr">창고</p>
+                            </div>
+                            <div class="icon-img on">
+                                <img src="~/Images/service_icon4_on.png" />
+                            </div>
+                            <div class="icon-img off">
+                                <img src="~/Images/service_icon4_off.png" />
+                            </div>
+                        </div>
+                        <div class="header-icon__list off chemicals">
+                            <div class="icon-txt">
+                                <p class="icon-txt__eng">Chemicals</p>
+                                <p class="icon-txt__kr">화학제품판매</p>
+                            </div>
+                            <div class="icon-img on">
+                                <img src="~/Images/service_icon5_on.png" />
+                            </div>
+                            <div class="icon-img off">
+                                <img src="~/Images/service_icon5_off.png" />
+                            </div>
+                        </div>
+                        <div class="header-icon__list off trading">
+                            <div class="icon-txt">
+                                <p class="icon-txt__eng">Trading</p>
+                                <p class="icon-txt__kr">트레이딩</p>
+                            </div>
+                            <div class="icon-img on width30">
+                                <img src="~/Images/service_icon6_on.png" />
+                            </div>
+                            <div class="icon-img off width30">
+                                <img src="~/Images/service_icon6_off.png" />
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <section class="contents">
+                <div class="sub-main__cont sea">
+                    <div class="about-item__box">
+                        <div class="about__item">
+                            <h3 class="about-page__title">해상운송</h3>
+                            <div class="about__item--cont">
+                                <div class="sea-cont">
+                                    <div class="about__item--cont__img">
+                                        <img src="~/Images/sea_img1.jpg" />
+                                    </div>
+                                    <div class="sea-cont__box">
+                                        <div class="sea-cont__box-flex">
+                                            <div class="sea-cont__box-flex__item flex-start">
+                                                <img src="~/Images/service_check.png" />
+                                                <p>
+                                                    오랜 KNOW-HOW로 FCL, LCL, FR, OT, OGG,<br />
+                                                    BULK & PROJECT, ISO TANK 등 최상의 물류 서비스 제공
+                                                </p>
+                                            </div>
+                                            <div class="sea-cont__box-flex__item flex-start">
+                                                <img src="~/Images/service_check.png" />
+                                                <p>
+                                                    아프리카, 중동, CIS, 서남아시아 등 지역 특화 네트워크
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="sea-cont__box-flex">
+                                            <div class="sea-cont__box-flex__item flex-start">
+                                                <img src="~/Images/service_check.png" />
+                                                <p>
+                                                    국내외 선사 별 특화서비스를 통하여 경쟁력 있는 운임으로<br />
+                                                    고객 맞춤형 서비스 제공
+                                                </p>
+                                            </div>
+                                            <div class="sea-cont__box-flex__item flex-start">
+                                                <img src="~/Images/service_check.png" />
+                                                <p>
+                                                    방산물자 및 전략물자 수출입을 위한 국방부 보안측정을 유지하며<br />
+                                                    무기 및 화약류 취급 가능
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="sea-cont__box2">
+                                        <div class="sea-cont__box2__title">
+                                            <p>고객의 요청에 맞는 다양한 해상 솔루션을 제안 드립니다.</p>
+                                            <p>
+                                                다년간 구축한 선사와의 좋은 관계를 바탕으로 안정적인 해상 수송 서비스를 제공하고 있습니다.<br />
+                                                고객 산업군에 특화된 해상운송 솔루션을 글로벌 네트워크를 통해 제공합니다.
+                                            </p>
+                                        </div>
+                                        <div class="sea-cont__box2__item">
+                                            <div class="sea-cont__box2__item-flex">
+                                                <img src="~/Images/sea_img2.jpg" />
+                                                <div class="sea-cont__box2__item-flex__title">
+                                                    <p>FCL(Full Container Load), LCL(Less than Container Load)</p>
+                                                    <p>
+                                                        다양한 선사 및 콘솔사와의 파트너십을 통해 유연하고 신속한 해상 서비스를 제공합니다.<br />
+                                                        또한 포장, 통관, 보관, 운송에 이르는 모든 물류 서비스를 함께 제공하고 있습니다.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="sea-cont__box2__item-flex reverse">
+                                                <div class="sea-cont__box2__item-flex__title">
+                                                    <p>특수화물 운송</p>
+                                                    <p>
+                                                        ISO tank, Flexibag, Reefer Container, FLAT RACK CONTAINER, OOG (Out-of-gauge) Cargo,<br />
+                                                        등의 특수 컨테이너 서비스를 제공합니다.
+                                                    </p>
+                                                </div>
+                                                <img src="~/Images/sea_img3.jpg" />
+                                            </div>
+                                            <div class="sea-cont__box2__item-flex">
+                                                <img src="~/Images/sea_img4.jpg" />
+                                                <div class="sea-cont__box2__item-flex__title">
+                                                    <p>BULK & PROJECT</p>
+                                                    <p>
+                                                        플랜트, 정밀기기 설비 등 수송을 요하는 BULK 화물, 공장이전 설비, 위험물 수송의 경우 풍부한<br />
+                                                        경험을 가진 전문인력이 각 화물의 특성을 미리 파악하여 정확하고 신속하게 운송합니다.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="sea-cont__box2__item-flex reverse">
+                                                <div class="sea-cont__box2__item-flex__title">
+                                                    <p>삼국간 무역(중계무역)</p>
+                                                    <p>
+                                                        중계무역에 따른 복잡한 서류 및 운송절차를 보다 편리하게 처리할 수 있도록<br />
+                                                        삼국간 무역(중계무역) 운송 서비스를 제공하고 있습니다.
+                                                    </p>
+                                                </div>
+                                                <img src="~/Images/sea_img5.jpg" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sub-main__cont air" style="display:none;">
+                    <div class="about-item__box">
+                        <div class="about__item">
+                            <h3 class="about-page__title">항공운송</h3>
+                            <div class="about__item--cont">
+                                <div class="sea-cont">
+                                    <div class="about__item--cont__img">
+                                        <img src="~/Images/air_img1.jpg" />
+                                    </div>
+                                    <div class="sea-cont__box">
+                                        <div class="sea-cont__box-flex">
+                                            <div class="sea-cont__box-flex__item flex-start">
+                                                <img src="~/Images/service_check.png" />
+                                                <p>
+                                                    운송화물의 특성(위험물 여부), 리드타임, 운송비용 등을 고려하여 다양한<br />
+                                                    항공서비스와 안정적인 스페이스를 확보하여 토탈 고객서비스 제공
+                                                </p>
+                                            </div>
+                                            <div class="sea-cont__box-flex__item flex-start">
+                                                <img src="~/Images/service_check.png" />
+                                                <p>
+                                                    중량물, 의약품, 화학제품, 전자장비 등 특수아이템 등 제한 없는<br />
+                                                    다양한 제품군 취급가능
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="sea-cont__box-flex">
+                                            <div class="sea-cont__box-flex__item">
+                                                <img src="~/Images/service_check.png" />
+                                                <p>글로벌 네트워크를 통한 전세계 공백 없는 서비스 제공</p>
+                                            </div>
+                                            <div class="sea-cont__box-flex__item">
+                                                <img src="~/Images/service_check.png" />
+                                                <p>다양한 협력사 인프라를 통한 경쟁력 있는 비용으로 안정적인 운송 확보</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="sea-cont__box2">
+                                        <div class="sea-cont__box2__title">
+                                            <p>전세계 어느 곳이든 빠르고 안전하게 고객의 화물을 운송해 드립니다.</p>
+                                            <p>주요 항공사와 글로벌 100여개의 네트워크를 이용해 수출입 항공, 창고, 보세 운송 등 원스톱 항공물류 서비스를 제공하고 있습니다.</p>
+                                        </div>
+                                        <div class="sea-cont__box2__item">
+                                            <div class="sea-cont__box2__item-flex">
+                                                <img src="~/Images/air_img2.jpg" />
+                                                <div class="sea-cont__box2__item-flex__title">
+                                                    <p>항공 특수화물 수송(Special Cargo Handling Service)</p>
+                                                    <p>오랜 경험과 노하우를 가진 전담팀을 통한 전문 서비스 제공</p>
+                                                </div>
+                                            </div>
+                                            <div class="sea-cont__box2__item-flex reverse">
+                                                <div class="sea-cont__box2__item-flex__title">
+                                                    <p>전세기 서비스(Charter Services)</p>
+                                                    <p>주요 지역에 전세기 운영으로 안정적인 스페이스와 경쟁력 있는 운임 제공</p>
+                                                </div>
+                                                <img src="~/Images/air_img3.jpg" />
+                                            </div>
+                                            <div class="sea-cont__box2__item-flex">
+                                                <img src="~/Images/air_img4.jpg" />
+                                                <div class="sea-cont__box2__item-flex__title">
+                                                    <p>멀티모달 서비스(Sea & Air / Truck & Air)</p>
+                                                    <p>저렴한 해상/내륙 운송과 신속한 항공수송의 장점을 결합한 최적의 서비스 제공</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sub-main__cont inland" style="display:none;">
+                    <div class="about-item__box">
+                        <div class="about__item">
+                            <h3 class="about-page__title">내륙운송</h3>
+                            <div class="about__item--cont">
+                                <div class="sea-cont">
+                                    <div class="about__item--cont__img">
+                                        <img src="~/Images/inland_img.jpg" />
+                                    </div>
+                                    <div class="sea-cont__box">
+                                        <p class="inland__title">
+                                            <img src="/Images/service_check.png">
+                                            해상, 항공 수출입 관련 국내 주요 항만과 공항을 중심으로 FCL 컨테이너, LCL 소량화물, 항공화물에 대한<br />
+                                            고객의 화물 특성을 고려하고 최적의 운송장비를 적재적소에 투입하여 완벽한 내륙운송 서비스를 제공하고 있습니다.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sub-main__cont w-house" style="display:none;">
+                    <div class="about-item__box">
+                        <div class="about__item">
+                            <h3 class="about-page__title">창고</h3>
+                            <div class="about__item--cont">
+                                <div class="sea-cont">
+                                    <div class="about__item--cont__img">
+                                        <img src="~/Images/w_house.jpg" />
+                                    </div>
+                                    <div class="sea-cont__box">
+                                        <div class="sea-cont__box-flex">
+                                            <div class="sea-cont__box-flex__item">
+                                                <img src="~/Images/service_check.png" />
+                                                <p>수출입 물류의 원활한 보관 및 상시 재고관리 서비스 제공</p>
+                                            </div>
+                                            <div class="sea-cont__box-flex__item">
+                                                <img src="~/Images/service_check.png" />
+                                                <p>화물연대 파업 등에 의한 물류변수에 적극 대응 가능</p>
+                                            </div>
+                                        </div>
+                                        <div class="sea-cont__box-flex">
+                                            <div class="sea-cont__box-flex__item flex-start">
+                                                <img src="~/Images/service_check.png" />
+                                                <p>
+                                                    물류의 Total Service, One Stop Service System으로 기업들의<br />
+                                                    물류비용 절감
+                                                </p>
+                                            </div>
+                                            <div class="sea-cont__box-flex__item flex-start">
+                                                <img src="~/Images/service_check.png" />
+                                                <p>
+                                                    저렴하고 편리한 서비스로 고객의 경쟁력 강화 및 다수 운송사 연계로<br />
+                                                    완벽한 배차서비스 가능
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sub-main__cont chemicals" style="display:none;">
+                    <div class="about-item__box">
+                        <div class="about__item">
+                            <h3 class="about-page__title">화학제품</h3>
+                            <div class="about__item--cont">
+                                <div class="sea-cont">
+                                    <div class="about__item--cont__img">
+                                        <img src="~/Images/chemicals.jpg" />
+                                    </div>
+                                    <div class="sea-cont__box sea-cont__box2" style="gap:20px; padding-top:20px;">
+                                        <div class="sea-cont__box2__title chemicals" style="padding-bottom:0;">
+                                            <p>산화에틸렌</p>
+                                        </div>
+                                        <p class="inland__title">
+                                            <img src="/Images/service_check.png">
+                                            산화에틸렌은 우리가 익숙하게 사용하는 다양한 제품들의 제조에 핵심적인 역할을 합니다.<br />
+                                            산화에틸렌의 특별한 화학적 성질로 플라스틱, 고무, 섬유 등 다양한 산업 분야에서 활용되고 있습니다.<br />
+                                            산화에틸렌은 유연성과 내구성을 동시에 갖추고 있어, 우리가 사용하는 가방, 옷, 신발 등의 제조에 필수적입니다.<br />
+                                            또한, 산화에틸렌은 고무와 플라스틱의 생산에도 중요한 역할을 합니다.<br />
+                                            우리가 흔히 사용하는 자동차 타이어, 플라스틱 병, 가전제품, 의료용소독 등은 모두 산화에틸렌으로 만들어집니다.<br />
+                                        </p>
+                                    </div>
+                                    <div class="sea-cont__box2">
+                                        <div class="sea-cont__box2__item">
+                                            <div class="sea-cont__box2__item-flex">
+                                                <img src="~/Images/chemicals_img2.jpg" />
+                                                <div class="sea-cont__box2__item-flex__title chemicals">
+                                                    <p>
+                                                        2012년 국내 굴지의 화학회사와 대리점 계약을 통하여 화학제품<br />
+                                                        (산화에틸렌 외)의 도소매 및 육상운송을 통한 원활한 공급 지속적인 수행
+                                                    </p>
+                                                    <p>
+                                                        앞으로 다양한 제조사의 대리점으로서 경쟁력 있는 제품단가 및<br />
+                                                        안전한 운송을 선두
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="sea-cont__box2__item-flex reverse">
+                                                <div class="sea-cont__box2__item-flex__title chemicals">
+                                                    <p>
+                                                        주요 고객사는 한국바스프, 금호석유화학, KPX케미칼 등이 있으며<br />
+                                                        적시공급 및 안전공급을 최우선으로 진행
+                                                    </p>
+                                                    <p>
+                                                        통합관제시스템운영으로 차량 위치정보, 위험지역 실시간 확인 등<br />
+                                                        정시 및 안전 운송을 위한 최대 방지책 마련
+                                                    </p>
+                                                </div>
+                                                <img src="~/Images/chemicals_img3.jpg" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="sea-cont__box3">
+                                        <div class="chemicals-img-list">
+                                            <div class="chemicals-img-list__item">
+                                                <div class="chmicals-img__div1"></div>
+                                                <div class="chmicals-img__div2"></div>
+                                            </div>
+                                            <div class="chemicals-img-list__item">
+                                                <div class="chmicals-img__div3"></div>
+                                                <div class="chmicals-img__div4"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="sea-cont__box2 chemicals">
+                                        <div class="sea-cont__box2__title chemicals">
+                                            <p>발연황산</p>
+                                        </div>
+                                        <div class="about__item--cont__img">
+                                            <img src="~/Images/chemicals_img8.jpg" />
+                                        </div>
+                                        <div class="sea-cont__box">
+                                            <p class="inland__title">
+                                                <img src="/Images/service_check.png">
+                                                발연황산은  방산제품(폭약) 및 2차 전지 제조에 핵심적인 역할을  하는 화학 제품입니다.<br />
+                                                그 외 염료, 안료, 산화제, 반도체용 황산 등 다양한  사업분야에 사용되는 화학제품입니다.
+                                            </p>
+                                        </div>
+                                        <div class="sea-cont__box2__item-flex chemicals">
+                                            <div class="sea-cont__box2__item-flex__title chemicals">
+                                                <p>2023년 국내 대기업 화학회사와 발연황산 대리점 계약 체결</p>
+                                                <p>
+                                                    앞으로 다양한 제조사의 대리점으로서 경쟁력 있는 제품단가 및<br />
+                                                    안전한 운송을 선두
+                                                </p>
+                                            </div>
+                                            <div class="sea-cont__box2__item-flex__title chemicals">
+                                                <p>(주)한화 등 국내 주요 대기업 화학업체에 발연황산 공급</p>
+                                                <p>
+                                                    통합관제 시스템운영으로 차량 위치정보, 위험지역 실시간 확인 등<br />
+                                                    정시 및 안전 운송을 위한 최대 방지책 마련
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="sea-cont__box4">
+                                        <div class="chemicals-img-list">
+                                            <div class="chemicals-img-list__div1"></div>
+                                            <div class="chemicals-img-list__div2"></div>
+                                            <div class="chemicals-img-list__div3"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sub-main__cont trading" style="display:none;">
+
+                    <div class="about-item__box">
+                        <div class="about__item">
+                            <h3 class="about-page__title">트레이딩</h3>
+                            <div class="about__item--cont">
+                                <div class="sea-cont">
+                                    <div class="about__item--cont__img">
+                                        <img src="~/Images/trading.jpg" />
+                                    </div>
+                                    <div class="sea-cont__box">
+                                        <p class="inland__title">
+                                            <img src="/Images/service_check.png">
+                                            폭 넓은 해상·항공 수출입 경험, 글로벌 서비스 네트워크 보유 및 조직화 된 전문인력을 바탕으로<br />
+                                            태화엘앤씨의 미래를 책임질 자동차부품(PTC)과 디스플레이 제품 등의 트레이딩 사업을 시작하였습니다.<br />
+                                            앞으로 다양한 아이템으로 사업을 확대하여 사업부분의 한 축이 될 것 입니다.<br />
+                                        </p>
+                                    </div>
+                                    <div class="sea-cont__box2 trading">
+                                        <div class="sea-cont__box2__title chemicals">
+                                            <p>PTC(자동차부품 외)</p>
+                                        </div>
+                                        <div class="sea-cont__box">
+                                            <p class="inland__title">
+                                                PTC 는  전류가 흘러서 온도가 올라가면  특정한 온도에서  저항이 증가하여 전류를 억제하는 특성을 가지고 있습니다.<br />
+                                                이러한 특성을 이용하여  전기자동차, 전기제품, 전자모기향 등 우리 생활  사용되는 밀접한  제품에서 중요한 역할을 하는 부품입니다.
+                                            </p>
+                                        </div>
+                                        <div class="trading-img">
+                                            <div class="trading-img__box">
+                                                <div class="trading-img__box__item1"></div>
+                                                <div class="trading-img__box__item2"></div>
+                                                <div class="trading-img__box__item3"></div>
+                                            </div>
+                                            <div class="trading-img__box">
+                                                <div class="trading-img__box__item4"></div>
+                                                <div class="trading-img__box__item5"></div>
+                                                <div class="trading-img__box__item6"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    }
+    else
+    {
+        <main class="container">
+            <div class="sub-header">
+                <section class="contents sub-header__cont">
+                    <div class="sub-header__title">
+                        <p>
+                            BUSINESS<br />
+                            AREA
+                        </p>
+                    </div>
+                    <div class="sub-header__icon service">
+                        <div class="header-icon__list en on sea">
+                            <div class="icon-txt">
+                                <p class="icon-txt__eng en">Sea Service</p>
+                            </div>
+                            <div class="icon-img on">
+                                <img src="~/Images/service_icon1_on.png" />
+                            </div>
+                            <div class="icon-img off">
+                                <img src="~/Images/service_icon1_off.png" />
+                            </div>
+                        </div>
+                        <div class="header-icon__list en off air">
+                            <div class="icon-txt">
+                                <p class="icon-txt__eng en">Air Service</p>
+                            </div>
+                            <div class="icon-img on">
+                                <img src="~/Images/service_icon2_on.png" />
+                            </div>
+                            <div class="icon-img off">
+                                <img src="~/Images/service_icon2_off.png" />
+                            </div>
+                        </div>
+                        <div class="header-icon__list en off inland">
+                            <div class="icon-txt">
+                                <p class="icon-txt__eng en">Inland Trans</p>
+                            </div>
+                            <div class="icon-img on">
+                                <img src="~/Images/service_icon3_on.png" />
+                            </div>
+                            <div class="icon-img off">
+                                <img src="~/Images/service_icon3_off.png" />
+                            </div>
+                        </div>
+                        <div class="header-icon__list en off house">
+                            <div class="icon-txt">
+                                <p class="icon-txt__eng en">Warehousing</p>
+                            </div>
+                            <div class="icon-img on">
+                                <img src="~/Images/service_icon4_on.png" />
+                            </div>
+                            <div class="icon-img off">
+                                <img src="~/Images/service_icon4_off.png" />
+                            </div>
+                        </div>
+                        <div class="header-icon__list en off chemicals">
+                            <div class="icon-txt">
+                                <p class="icon-txt__eng en">Chemicals</p>
+                            </div>
+                            <div class="icon-img on">
+                                <img src="~/Images/service_icon5_on.png" />
+                            </div>
+                            <div class="icon-img off">
+                                <img src="~/Images/service_icon5_off.png" />
+                            </div>
+                        </div>
+                        <div class="header-icon__list en off trading">
+                            <div class="icon-txt">
+                                <p class="icon-txt__eng en">Trading</p>
+                            </div>
+                            <div class="icon-img on width30">
+                                <img src="~/Images/service_icon6_on.png" />
+                            </div>
+                            <div class="icon-img off width30">
+                                <img src="~/Images/service_icon6_off.png" />
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <section class="contents">
+                <div class="sub-main__cont sea">
+                    <div class="about-item__box">
+                        <div class="about__item">
+                            <h3 class="about-page__title">Sea Service</h3>
+                            <div class="about__item--cont">
+                                <div class="sea-cont">
+                                    <div class="about__item--cont__img">
+                                        <img src="~/Images/sea_img1.jpg" />
+                                    </div>
+                                    <div class="sea-cont__box">
+                                        <div class="sea-cont__box-flex">
+                                            <div class="sea-cont__box-flex__item flex-start">
+                                                <img src="~/Images/service_check.png" />
+                                                <p>
+                                                    Provision of the best logistics services such as FCL, LCL, FR, OT, OCG,<br />
+                                                    BULK & PROJECT, SIO TANK, etc. with long-standing know-how
+                                                </p>
+                                            </div>
+                                            <div class="sea-cont__box-flex__item flex-start">
+                                                <img src="~/Images/service_check.png" />
+                                                <p>
+                                                    Regionally specialized networks such as Africa, the Middle East, CIS, Southwest Asia, etc.
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="sea-cont__box-flex">
+                                            <div class="sea-cont__box-flex__item flex-start">
+                                                <img src="~/Images/service_check.png" />
+                                                <p>
+                                                    Provision of customer-tailored service at competitive rates through specialized services<br />
+                                                    by domestic and foreign shipping companies
+                                                </p>
+                                            </div>
+                                            <div class="sea-cont__box-flex__item flex-start">
+                                                <img src="~/Images/service_check.png" />
+                                                <p>
+                                                    Maintenance of the security measurement of the Ministry of National Defense for the import<br />
+                                                    and export of defense industrial materials and strategic materials, and possession of the ability to handle weapons and gunpowder
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="sea-cont__box2">
+                                        <div class="sea-cont__box2__title">
+                                            <p>We propose various marine solutions that can meet the needs of our customers.</p>
+                                            <p>
+                                                Our company provides stable maritime transportation services based on good relationships with shipping companies established for many years.<br />
+                                                It also provides maritime transport solutions specialized in the customer industry through global networks.
+                                            </p>
+                                        </div>
+                                        <div class="sea-cont__box2__item">
+                                            <div class="sea-cont__box2__item-flex">
+                                                <img src="~/Images/sea_img2.jpg" />
+                                                <div class="sea-cont__box2__item-flex__title">
+                                                    <p>FCL(Full Container Load), LCL(Less than Container Load)</p>
+                                                    <p>
+                                                        Our company provides flexible and rapid maritime services through partnerships with many shipping and console companies.<br />
+                                                        It also offers all logistics services from packaging, customs clearance, storage, and transportation.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="sea-cont__box2__item-flex reverse">
+                                                <div class="sea-cont__box2__item-flex__title">
+                                                    <p>Special Freight Transportation</p>
+                                                    <p>
+                                                        We provide specialized container services such as ISO tank, Flexibag,<br />
+                                                        Refer Container, FLAT RACK CONTAINER, Out-Of-Gauge (OOG) Cargo, etc.
+                                                    </p>
+                                                </div>
+                                                <img src="~/Images/sea_img3.jpg" />
+                                            </div>
+                                            <div class="sea-cont__box2__item-flex">
+                                                <img src="~/Images/sea_img4.jpg" />
+                                                <div class="sea-cont__box2__item-flex__title">
+                                                    <p>BULK & PROJECT</p>
+                                                    <p>
+                                                        In the case of bulk cargoes requiring transportation such as plants and precision equipment facilities, <br />
+                                                        factory relocation facilities, and dangerous goods transportation, experts with extensive experience identify<br />
+                                                        the characteristics of each cargo in advance and transport them accurately and quickly.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="sea-cont__box2__item-flex reverse">
+                                                <div class="sea-cont__box2__item-flex__title">
+                                                    <p>Trilateral Trade (Transit Trade)</p>
+                                                    <p>
+                                                        We provide trade (transit trade) transportation services among the three countries so that complex documents<br />
+                                                        and transportation procedures can be handled more conveniently according to transit trade.
+                                                    </p>
+                                                </div>
+                                                <img src="~/Images/sea_img5.jpg" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sub-main__cont air" style="display:none;">
+                    <div class="about-item__box">
+                        <div class="about__item">
+                            <h3 class="about-page__title">Air Service</h3>
+                            <div class="about__item--cont">
+                                <div class="sea-cont">
+                                    <div class="about__item--cont__img">
+                                        <img src="~/Images/air_img1.jpg" />
+                                    </div>
+                                    <div class="sea-cont__box">
+                                        <div class="sea-cont__box-flex">
+                                            <div class="sea-cont__box-flex__item flex-start">
+                                                <img src="~/Images/service_check.png" />
+                                                <p>
+                                                    Provision of total customer service through various air services and stable space by considering the characteristics<br />
+                                                    of the transport cargo (whether or not it is a dangerous object), lead time, transportation cost, etc.
+                                                </p>
+                                            </div>
+                                            <div class="sea-cont__box-flex__item flex-start">
+                                                <img src="~/Images/service_check.png" />
+                                                <p>
+                                                    Possession of unlimited ability to handle various product lines such as<br />
+                                                    heavy goods, pharmaceuticals, chemicals, electronic equipment, special items, etc.
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="sea-cont__box-flex">
+                                            <div class="sea-cont__box-flex__item">
+                                                <img src="~/Images/service_check.png" />
+                                                <p>Provision of seamless services around the world through global networks.</p>
+                                            </div>
+                                            <div class="sea-cont__box-flex__item">
+                                                <img src="~/Images/service_check.png" />
+                                                <p>Securing stable transportation at competitive costs through various partner infrastructure</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="sea-cont__box2">
+                                        <div class="sea-cont__box2__title">
+                                            <p>We transport your cargo quickly and safely anywhere in the world.</p>
+                                            <p>Our company provides one-stop air logistics services such as import and export aviation, warehouse, and bonded transportation, using major airlines and over 100 global networks.</p>
+                                        </div>
+                                        <div class="sea-cont__box2__item">
+                                            <div class="sea-cont__box2__item-flex">
+                                                <img src="~/Images/air_img2.jpg" />
+                                                <div class="sea-cont__box2__item-flex__title">
+                                                    <p>Special Cargo Handling Service</p>
+                                                    <p>Provision of professional services through a dedicated team with long experience and know-how</p>
+                                                </div>
+                                            </div>
+                                            <div class="sea-cont__box2__item-flex reverse">
+                                                <div class="sea-cont__box2__item-flex__title">
+                                                    <p>Charter Services</p>
+                                                    <p>Provision of stable space and competitive freight rates through charter operations to key regions.</p>
+                                                </div>
+                                                <img src="~/Images/air_img3.jpg" />
+                                            </div>
+                                            <div class="sea-cont__box2__item-flex">
+                                                <img src="~/Images/air_img4.jpg" />
+                                                <div class="sea-cont__box2__item-flex__title">
+                                                    <p>Multi-Modal Service (Sea & Air / Truck & Air)</p>
+                                                    <p>Provision of optimal service that combines the advantages of affordable sea/inland transportation with rapid air transport</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sub-main__cont inland" style="display:none;">
+                    <div class="about-item__box">
+                        <div class="about__item">
+                            <h3 class="about-page__title">Inland Trans</h3>
+                            <div class="about__item--cont">
+                                <div class="sea-cont">
+                                    <div class="about__item--cont__img">
+                                        <img src="~/Images/inland_img.jpg" />
+                                    </div>
+                                    <div class="sea-cont__box">
+                                        <p class="inland__title">
+                                            <img src="/Images/service_check.png">
+                                            Focusing on major domestic ports and airports related to maritime and air exports and imports,<br />
+                                            we consider the customer's cargo characteristics for FCL containers, LCL small cargoes, and air cargoes and provide<br />
+                                            perfect inland transportation services by putting optimal transport equipment in the right place.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sub-main__cont w-house" style="display:none;">
+                    <div class="about-item__box">
+                        <div class="about__item">
+                            <h3 class="about-page__title">Warehousing</h3>
+                            <div class="about__item--cont">
+                                <div class="sea-cont">
+                                    <div class="about__item--cont__img">
+                                        <img src="~/Images/w_house.jpg" />
+                                    </div>
+                                    <div class="sea-cont__box">
+                                        <div class="sea-cont__box-flex">
+                                            <div class="sea-cont__box-flex__item">
+                                                <img src="~/Images/service_check.png" />
+                                                <p>Seamless storage of import and export logistics and provision of constant inventory management services</p>
+                                            </div>
+                                            <div class="sea-cont__box-flex__item">
+                                                <img src="~/Images/service_check.png" />
+                                                <p>Possession of the ability to actively respond to logistics variables caused by joint cargo strikes, etc.</p>
+                                            </div>
+                                        </div>
+                                        <div class="sea-cont__box-flex">
+                                            <div class="sea-cont__box-flex__item flex-start">
+                                                <img src="~/Images/service_check.png" />
+                                                <p>
+                                                    Reduction of logistics costs for companies through the total service and one-stop service system of logistics
+                                                </p>
+                                            </div>
+                                            <div class="sea-cont__box-flex__item flex-start">
+                                                <img src="~/Images/service_check.png" />
+                                                <p>
+                                                    Strengthening of customer competitiveness with affordable and convenient service and possession of the capability to provide complete dispatch service by linking multiple carriers
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sub-main__cont chemicals" style="display:none;">
+                    <div class="about-item__box">
+                        <div class="about__item">
+                            <h3 class="about-page__title">Chemicals</h3>
+                            <div class="about__item--cont">
+                                <div class="sea-cont">
+                                    <div class="about__item--cont__img">
+                                        <img src="~/Images/chemicals.jpg" />
+                                    </div>
+                                    <div class="sea-cont__box sea-cont__box2" style="gap:20px; padding-top:20px;">
+                                        <div class="sea-cont__box2__title chemicals" style="padding-bottom:0;">
+                                            <p>Ethylene Oxide</p>
+                                        </div>
+                                        <p class="inland__title">
+                                            <img src="/Images/service_check.png">
+                                            Ethylene oxide plays a key role in manufacturing a variety of products that we are familiar with. Due to the special chemical properties of ethylene oxide, it is used in various industries such as plastics, rubber, textiles, etc. Ethylene oxide has flexibility and durability at the same time, so it is essential for manufacturing bags, clothes, shoes, etc. that we use. Ethylene oxide also plays an important role in the production of rubber and plastics. Automotive tires, plastic bottles, home appliances, and medical disinfectants that we commonly use are all made from ethylene oxide.
+                                        </p>
+                                    </div>
+                                    <div class="sea-cont__box2">
+                                        <div class="sea-cont__box2__item">
+                                            <div class="sea-cont__box2__item-flex">
+                                                <img src="~/Images/chemicals_img2.jpg" />
+                                                <div class="sea-cont__box2__item-flex__title chemicals">
+                                                    <p>
+                                                        Continuous and smooth supply of chemicals (in addition to ethylene oxide) by wholesale, retail, and land transportation through an exclusive agency contract with a leading domestic chemical company in 2012.
+                                                    </p>
+                                                    <p>
+                                                        Planning to lead competitive product unit prices and safe transportation as an agent for various manufacturers in the future
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="sea-cont__box2__item-flex reverse">
+                                                <div class="sea-cont__box2__item-flex__title chemicals">
+                                                    <p>
+                                                        Possession of major customers including BASF Korea, Kumho Petrochemical, KPX Chemicals, etc., and prioritization of timely and safe supplies
+                                                    </p>
+                                                    <p>
+                                                        Establishment of maximum preventive measures for on-time and safe transportation, such as vehicle location information, real-time verification of dangerous areas, etc. through the operation of the integrated control system
+                                                    </p>
+                                                </div>
+                                                <img src="~/Images/chemicals_img3.jpg" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="sea-cont__box3">
+                                        <div class="chemicals-img-list">
+                                            <div class="chemicals-img-list__item">
+                                                <div class="chmicals-img__div1"></div>
+                                                <div class="chmicals-img__div2"></div>
+                                            </div>
+                                            <div class="chemicals-img-list__item">
+                                                <div class="chmicals-img__div3"></div>
+                                                <div class="chmicals-img__div4"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="sea-cont__box2 chemicals">
+                                        <div class="sea-cont__box2__title chemicals">
+                                            <p>Fuming Sulfuric Acid</p>
+                                        </div>
+                                        <div class="about__item--cont__img">
+                                            <img src="~/Images/chemicals_img8.jpg" />
+                                        </div>
+                                        <div class="sea-cont__box">
+                                            <p class="inland__title">
+                                                <img src="/Images/service_check.png">
+                                                Fuming sulfuric acid is a chemical that plays a key role in manufacturing defense products (explosives) and secondary batteries. It is a chemical product also used in various business fields such as dyes, pigments, oxidants, sulfuric acid for semiconductors, etc.
+                                            </p>
+                                        </div>
+                                        <div class="sea-cont__box2__item-flex chemicals">
+                                            <div class="sea-cont__box2__item-flex__title chemicals">
+                                                <p>Conclusion of a heat-generating sulfuric acid agency contract with a large domestic chemical company in 2023</p>
+                                                <p>
+                                                    Supply of fuming sulfuric acid to major domestic chemical companies such as Hanwha Inc., etc.
+                                                </p>
+                                            </div>
+                                            <div class="sea-cont__box2__item-flex__title chemicals">
+                                                <p>Leading of competitive product unit prices and safe transportation as agents of various manufacturers in the future</p>
+                                                <p>
+                                                    Establishment of maximum preventive measures for on-time and safe transportation such as vehicle location information and real-time confirmation of dangerous areas through the operation of the integrated control system
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="sea-cont__box4">
+                                        <div class="chemicals-img-list">
+                                            <div class="chemicals-img-list__div1"></div>
+                                            <div class="chemicals-img-list__div2"></div>
+                                            <div class="chemicals-img-list__div3"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sub-main__cont trading" style="display:none;">
+                    <div class="about-item__box">
+                        <div class="about__item">
+                            <h3 class="about-page__title">Trading</h3>
+                            <div class="about__item--cont">
+                                <div class="sea-cont">
+                                    <div class="about__item--cont__img">
+                                        <img src="~/Images/trading.jpg" />
+                                    </div>
+                                    <div class="sea-cont__box">
+                                        <p class="inland__title">
+                                            <img src="/Images/service_check.png">
+                                            With its extensive maritime, air import, and export experience, possession of a global service network, and organized professional manpower, Taehwa L&C has launched an automobile parts trading business that will take responsibility for the future of its customers. We will provide competitive services to our customers through various items in the future.
+                                        </p>
+                                    </div>
+                                    <div class="sea-cont__box2 trading">
+                                        <div class="sea-cont__box2__title chemicals">
+                                            <p>Automobile Parts</p>
+                                        </div>
+                                        <div class="sea-cont__box">
+                                            <p class="inland__title">
+                                                PTC has the characteristic of suppressing current by increasing resistance at a specific temperature when current flows and the temperature rises. Using these characteristics, plays an important role in close products used in our daily lives, such as electric vehicles, electric appliances, electronic mosquito repellents, etc.
+                                            </p>
+                                        </div>
+                                        <div class="trading-img">
+                                            <div class="trading-img__box">
+                                                <div class="trading-img__box__item1"></div>
+                                                <div class="trading-img__box__item2"></div>
+                                                <div class="trading-img__box__item3"></div>
+                                            </div>
+                                            <div class="trading-img__box">
+                                                <div class="trading-img__box__item4"></div>
+                                                <div class="trading-img__box__item5"></div>
+                                                <div class="trading-img__box__item6"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    }
+
+    <script>
+        $(document).ready(function () {
+            if (sessionStorage.getItem("sea") == "Y") {
+                $(".header-icon__list.sea").click();
+                sessionStorage.setItem("sea", "");
+            }
+        });
+        $(document).ready(function () {
+            if (sessionStorage.getItem("air") == "Y") {
+                $(".header-icon__list.air").click();
+                sessionStorage.setItem("air", "");
+            }
+        });
+        $(document).ready(function () {
+            if (sessionStorage.getItem("inland") == "Y") {
+                $(".header-icon__list.inland").click();
+                sessionStorage.setItem("inland", "");
+            }
+        });
+        $(document).ready(function () {
+            if (sessionStorage.getItem("house") == "Y") {
+                $(".header-icon__list.house").click();
+                sessionStorage.setItem("house", "");
+            }
+        });
+        $(document).ready(function () {
+            if (sessionStorage.getItem("chemicals") == "Y") {
+                $(".header-icon__list.chemicals").click();
+                sessionStorage.setItem("chemicals", "");
+            }
+        });
+        $(document).ready(function () {
+            if (sessionStorage.getItem("trading") == "Y") {
+                $(".header-icon__list.trading").click();
+                sessionStorage.setItem("trading", "");
+            }
+        });
+
+    </script>
+}

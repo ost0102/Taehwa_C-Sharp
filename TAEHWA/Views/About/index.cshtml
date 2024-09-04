@@ -1,0 +1,861 @@
+﻿@{
+    Layout = "~/Views/Shared/_SubLayout.cshtml";
+
+    string setLang = "";
+    string browser_lan = Request.UserLanguages[0]; // 브라우저 언어
+    if (!String.IsNullOrEmpty(browser_lan))
+    {
+        setLang = browser_lan;
+    }
+    if (HttpContext.Current.Session["Language"] == null) // 셋팅된 언어가 null이면
+    {
+        HttpContext.Current.Session["Language"] = setLang; // 브라우저 언어로 셋팅                                                       
+    }
+    else // 셋팅된 언어가 null이 아니면(브라우저 로드 후에 클릭하면)
+    {
+        if (HttpContext.Current.Session["Language"].ToString() == "ko")
+        {
+            setLang = "ko";
+            HttpContext.Current.Session["Language"] = setLang;
+        }
+        else
+        {
+            setLang = "en";
+            HttpContext.Current.Session["Language"] = setLang;
+        }
+    }
+}
+@section Container{
+    <script charset="UTF-8" class="daum_roughmap_loader_script" src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"></script>
+    <style>
+        .root_daum_roughmap {padding: 0; border: 4px solid #f68e5c; border-radius:30px;}
+        .root_daum_roughmap .wrap_controllers {display: none;}
+    </style>
+    @if(setLang.Equals("ko"))
+    {
+        <main class="container">
+            <div class="sub-header">
+                <section class="contents sub-header__cont">
+                    <div class="sub-header__title">
+                        <p>
+                            ABOUT<br />
+                            TAEHWA L&C
+                        </p>
+                    </div>
+                    <div class="sub-header__icon">
+                        <div class="header-icon__list on">
+                            <div class="icon-txt">
+                                <p class="icon-txt__eng">Summary</p>
+                                <p class="icon-txt__kr">개요</p>
+                            </div>
+                            <div class="icon-img on width30">
+                                <img src="~/Images/about_icon1_on.png" />
+                            </div>
+                            <div class="icon-img off width30">
+                                <img src="~/Images/about_icon1_off.png" />
+                            </div>
+                        </div>
+                        <div class="header-icon__list off">
+                            <div class="icon-txt">
+                                <p class="icon-txt__eng">Symbol</p>
+                                <p class="icon-txt__kr">상징</p>
+                            </div>
+                            <div class="icon-img on">
+                                <img src="~/Images/about_icon2_on.png" />
+                            </div>
+                            <div class="icon-img off">
+                                <img src="~/Images/about_icon2_off.png" />
+                            </div>
+                        </div>
+                        <div class="header-icon__list off">
+                            <div class="icon-txt">
+                                <p class="icon-txt__eng">CEO Greeting</p>
+                                <p class="icon-txt__kr">인사말</p>
+                            </div>
+                            <div class="icon-img on">
+                                <img src="~/Images/about_icon3_on.png" />
+                            </div>
+                            <div class="icon-img off">
+                                <img src="~/Images/about_icon3_off.png" />
+                            </div>
+                        </div>
+                        <div class="header-icon__list off">
+                            <div class="icon-txt">
+                                <p class="icon-txt__eng">Our History</p>
+                                <p class="icon-txt__kr">연혁</p>
+                            </div>
+                            <div class="icon-img on">
+                                <img src="~/Images/about_icon4_on.png" />
+                            </div>
+                            <div class="icon-img off">
+                                <img src="~/Images/about_icon4_off.png" />
+                            </div>
+                        </div>
+                        <div class="header-icon__list off">
+                            <div class="icon-txt">
+                                <p class="icon-txt__eng">Global Network</p>
+                                <p class="icon-txt__kr">글로벌네트워크</p>
+                            </div>
+                            <div class="icon-img on">
+                                <img src="~/Images/about_icon5_on.png" />
+                            </div>
+                            <div class="icon-img off">
+                                <img src="~/Images/about_icon5_off.png" />
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <section class="contents">
+                <div class="sub-main__cont summary">
+                    <div class="about-item__box1">
+                        <div class="about__item card">
+                            <div class="about__item--title">
+                                <p class="about__item--title-kr">사명</p>
+                                <p class="about__item--title-eng">CORPORATE NAME</p>
+                            </div>
+                            <div class="about__item--cont">
+                                <img src="~/Images/about_card1.png" />
+                                <div class="about__item--cont__txt">
+                                    <p>태화엘앤씨(주)</p>
+                                    <p class="sub__txt">TAEHWA LOGISTICS AND CHEMICALS CO.,LTD</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="about__item card">
+                            <div class="about__item--title">
+                                <p class="about__item--title-kr">창립일</p>
+                                <p class="about__item--title-eng">THE DAY OF FOUNDATION</p>
+                            </div>
+                            <div class="about__item--cont">
+                                <img src="~/Images/about_card2.png" />
+                                <div class="about__item--cont__txt">
+                                    <p>1988년 5월 11일</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-item__box2">
+                        <div class="about__item card">
+                            <div class="about__item inner_card">
+                                <div class="about__item--title">
+                                    <p class="about__item--title-kr">사업영역</p>
+                                    <p class="about__item--title-eng">BUSINESS AREA</p>
+                                </div>
+                                <div class="about__item--cont">
+                                    <div class="about__item--cont--flex">
+                                        <p>해상,항공 국제물류</p>
+                                        <p>화학제품 판매 및 운송</p>
+                                        <p>화물자동차운송사업</p>
+                                    </div>
+                                    <div class="about__item--cont--flex">
+                                        <p>창고보관서비스</p>
+                                        <p>무역업</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-item__box3">
+                        <div class="about__item card">
+                            <div id="daumRoughmapContainer1712131636182" class="root_daum_roughmap root_daum_roughmap_landing" style="width:65%;"></div>
+                            <div class="about__item--cont">
+                                <div class="about__item__info">
+                                    <div class="about__item__info--box">
+                                        <img src="~/Images/icn_location.png" />
+                                        <p class="about__item__info--box__title">LOCATION</p>
+                                        <p class="about__item__info--box__cont">서울특별시 영등포구<br />당산로 77 6층</p>
+                                    </div>
+                                    <div class="about__item__info--box">
+                                        <img src="~/Images/icn_mail.png" />
+                                        <p class="about__item__info--box__title">MAIL</p>
+                                        <p class="about__item__info--box__cont">taehwa@taf.co.kr</p>
+                                        <p style="visibility:hidden;">.</p>
+                                    </div>
+                                </div>
+                                <div class="about__item__info">
+                                    <div class="about__item__info--box">
+                                        <img src="~/Images/icn_about_tel.png" />
+                                        <p class="about__item__info--box__title">TEL</p>
+                                        <p class="about__item__info--box__cont">82-2-2006-7500</p>
+                                    </div>
+                                    <div class="about__item__info--box">
+                                        <img src="~/Images/icn_info.png" />
+                                        <div class="intro_down">
+                                            <a href="~/File/TAEHWA_Intro.pdf" download>회사소개서(국문)</a>
+                                            <a href="~/File/TAEHWA_Intro.pdf" download>회사소개서(영문)</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sub-main__cont symbol" style="display:none;">
+                    <div class="about-item__box">
+                        <div class="about__item">
+                            <h3 class="about-page__title">상징</h3>
+                            <div class="about__item--cont">
+                                <div class="symbol-cont1">
+                                    <div class="symbol-cont1__box">
+                                        <p class="symbol-cont1__box__title">Motif</p>
+                                        <div class="symbol-img">
+                                            <img src="~/Images/symbol_img1.png" />
+                                        </div>
+                                    </div>
+                                    <div class="symbol-cont1__box">
+                                        <p class="symbol-cont1__box__title">Symbol</p>
+                                        <div class="symbol-img">
+                                            <img src="~/Images/symbol_img2.png" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="symbol-cont2">
+                                    <div class="symbol-cont2__box">
+                                        <p class="symbol-cont2__box__txt txt1">예로부터 훨훨 타오르는 불꽃을 보며 소원을 빌고<br />운을 쫓는 등 많은 사람들에게 밝은 희망을 전하는 의미와</p>
+                                        <p class="symbol-cont2__box__txt txt1">진취적인 기상을 표현하는 의미로 전해지고 있습니다.</p>
+                                        <p class="symbol-cont2__box__txt txt2">모든 고객 여러분들의 희망찬 미래를 위하여</p>
+                                        <p class="symbol-cont2__box__txt txt3">태화엘앤씨는 꺼지지 않는 횃불처럼 노력하겠습니다.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sub-main__cont greeting" style="display:none;">
+                    <div class="about-item__box">
+                        <div class="about__item">
+                            <h3 class="about-page__title">인사말</h3>
+                            <div class="about__item--cont">
+                                <div class="greeting-cont">
+                                    <div class="greeting-cont1__box">
+                                        <div class="greeting__img"></div>
+                                    </div>
+                                    <div class="greeting-cont2__box">
+                                        <div>
+                                            <h3 class="greeting-cont2__box__title">Before You Do</h3>
+                                        </div>
+                                        <div>
+                                            <h3 class="greeting-cont2__box__title">We Prepare<em>!</em></h3>
+                                        </div>
+                                        <div class="greeting-cont2__box__txt">
+                                            <p>
+                                                우리는 글로벌 시대를 살아가고 있습니다.<br />
+                                                글로벌 시대의 세계화는 선택의 문제가 아니라 생존의 문제이며,<br />
+                                                이는 국가간 사회와 경제가 더욱 통합해 가는 상황으로 발전되고 있습니다.<br />
+                                                세계적인 경쟁력을 갖추어야 하는 가운데<br />
+                                                우리는 과거와 다른 세상을 살아가게 되었습니다.<br />
+                                                얼마나 더 발전할지 모르는 통신과 교통 기술로 경제 협력의 영역들이 더욱 확대 되었고,<br />
+                                                특히 국가 간 자유 무역 협정(FTA)은 무역 장벽을 낮추어<br />
+                                                상호 경제적 이득을 추구할 수 있게 되었습니다.<br />
+                                                이에 태화엘앤씨의 모든 임직원은 1988년부터 이어온 축적된 경험과 차별성으로<br />
+                                                고객 여러분의 사업성공 및 경제적 이득을 함께하고자 합니다.<br />
+                                                항상 배우는 자세로 선진물류체계의 도입, 보다 빠른 대응,<br />
+                                                경쟁력 있는 시스템의 구축, 3자 물류의 체계화 등 지속적인 발전으로<br />
+                                                그것이 고객 여러분들께 받은 사랑에 보답하는 것임을 잊지 않고<br />
+                                                더욱 최선을 다하겠습니다.<br />
+                                                태화엘앤씨는 먼저 준비합니다.<br />
+                                                태화엘앤씨와 함께 나아가 주시길 바라겠습니다.<br />
+                                                오늘도 최선을 다하여 노력하시는 고객 여러분의<br />
+                                                건강과 가정의 행복을 진심으로 기원합니다.<br />
+                                                항상 고맙습니다.
+                                            </p>
+                                            <p>대표이사<span>임경훈</span></p>
+                                        </div>
+                                    </div>
+                                    <div class="greeting-cont3__box">
+                                        <div class="greeting-cont3__img">
+                                            <div class="greeting__img1"></div>
+                                        </div>
+                                        <div class="greeting-cont3__img">
+                                            <div class="greeting__img2"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sub-main__cont history" style="display:none;">
+                    <div class="about-item__box">
+                        <div class="about__item">
+                            <h3 class="about-page__title">연혁</h3>
+                            <div class="about__item--cont">
+                                <div class="history-cont">
+                                    <div class="history-cont__box1">
+                                        <img src="~/Images/history_right.png" />
+                                        <div class="history-cont__img-area">
+                                            <div class="history-cont1__box">
+                                                <div class="history__img"></div>
+                                            </div>
+                                        </div>
+                                        <div class="history-cont__box__txt">
+                                            <div class="history-cont__box__title">
+                                                <p class="year">2020~</p>
+                                            </div>
+                                            <div class="history-cont__box__list">
+                                                <div class="history-list">
+                                                    <p class="history-list__title">2023.06</p>
+                                                    <p class="history-list__cont">국군방첩사령부 보안측정 통과(등급:우수)</p>
+                                                </div>
+                                                <div class="history-list">
+                                                    <p class="history-list__title">2022.09</p>
+                                                    <p class="history-list__cont">사명변경(태화엘앤씨)(TAEWHA LOGISTICS AND CHEMICALS)</p>
+                                                </div>
+                                                <div class="history-list">
+                                                    <p class="history-list__title">2020.03</p>
+                                                    <p class="history-list__cont">제 54회 납세자의 날 모범납세자 선정</p>
+                                                </div>
+                                                <div class="history-list">
+                                                    <p class="history-list__title">2019.03</p>
+                                                    <p class="history-list__cont">모범납세자 선정(서울특별시)</p>
+                                                </div>
+                                                <div class="history-list">
+                                                    <p class="history-list__title">2018.04</p>
+                                                    <p class="history-list__cont">ISO 45001(안전보건경영) 인증 획득</p>
+                                                </div>
+                                                <div class="history-list">
+                                                    <p class="history-list__title">2018.03</p>
+                                                    <p class="history-list__cont">ISO 14001(환경경영) 인증 획득</p>
+                                                </div>
+                                                <div class="history-list">
+                                                    <p class="history-list__title">2014.10</p>
+                                                    <p class="history-list__cont">고압가스제조(충전) 허가증 취득</p>
+                                                </div>
+                                                <div class="history-list">
+                                                    <p class="history-list__title">2014.04</p>
+                                                    <p class="history-list__cont">예산사무소 고압가스제조 충전 시설 설립</p>
+                                                </div>
+                                                <div class="history-list">
+                                                    <p class="history-list__title">2014.04</p>
+                                                    <p class="history-list__cont">울산 케미칼 사무소 개설</p>
+                                                </div>
+                                                <div class="history-list">
+                                                    <p class="history-list__title">2013.05</p>
+                                                    <p class="history-list__cont">AEO 인증취득(관세청)(등급 : A)</p>
+                                                </div>
+                                                <div class="history-list">
+                                                    <p class="history-list__title">2012.03</p>
+                                                    <p class="history-list__cont">제 46회 납세자의 날 모범납세자(영등포세무서)</p>
+                                                </div>
+                                                <div class="history-list">
+                                                    <p class="history-list__title">2011.01</p>
+                                                    <p class="history-list__cont">한국무역협회 협회사 등록</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="history-cont__box2">
+                                        <img src="~/Images/history_left.png" />
+                                        <div class="history-cont__box__txt">
+                                            <div class="history-cont__box__title">
+                                                <p class="year">2010~</p>
+                                            </div>
+                                            <div class="history-cont__box__list">
+                                                <div class="history-list">
+                                                    <p class="history-list__title">2009.07</p>
+                                                    <p class="history-list__cont">화물자동차 운송 사업 허가 취득</p>
+                                                </div>
+                                                <div class="history-list">
+                                                    <p class="history-list__title">2008.10</p>
+                                                    <p class="history-list__cont">ISO 9001(품질경영) 인증 획득</p>
+                                                </div>
+                                                <div class="history-list">
+                                                    <p class="history-list__title">2001.12</p>
+                                                    <p class="history-list__cont">9 MILLION DOLLAR SALES AWARD 대한항공</p>
+                                                </div>
+                                                <div class="history-list">
+                                                    <p class="history-list__title">2000.12</p>
+                                                    <p class="history-list__cont">11 MILLION DOLLAR SALES AWARD 대한항공</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="history-cont__img-area">
+                                            <div class="history-cont2__box">
+                                                <div class="history__img"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="history-cont__box3">
+                                        <img src="~/Images/history_right.png" />
+                                        <div class="history-cont__img-area">
+                                            <div class="history-cont3__box">
+                                                <div class="history__img"></div>
+                                            </div>
+                                        </div>
+                                        <div class="history-cont__box__txt">
+                                            <div class="history-cont__box__title">
+                                                <p class="year">1988~</p>
+                                            </div>
+                                            <div class="history-cont__box__list">
+                                                <div class="history-list">
+                                                    <p class="history-list__title">1998.12</p>
+                                                    <p class="history-list__cont">11 MILLION DOLLAR SALES AWARD 대한항공</p>
+                                                </div>
+                                                <div class="history-list">
+                                                    <p class="history-list__title">1998.11</p>
+                                                    <p class="history-list__cont">중국 상해사무소 개설</p>
+                                                </div>
+                                                <div class="history-list">
+                                                    <p class="history-list__title">1997.12</p>
+                                                    <p class="history-list__cont">17 MILLION DOLLAR SALES AWARD 대한항공</p>
+                                                </div>
+                                                <div class="history-list">
+                                                    <p class="history-list__title">1995.12</p>
+                                                    <p class="history-list__cont">11 MILLION DOLLAR SALES AWARD 대한항공</p>
+                                                </div>
+                                                <div class="history-list">
+                                                    <p class="history-list__title">1992.12</p>
+                                                    <p class="history-list__cont">복합 운송 주선업 면허 획득</p>
+                                                </div>
+                                                <div class="history-list">
+                                                    <p class="history-list__title">1988.05</p>
+                                                    <p class="history-list__cont">태화국제운송 설립</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sub-main__cont network" style="display:none;">
+                    <div class="about-item__box">
+                        <div class="about__item">
+                            <h3 class="about-page__title">글로벌 네트워크</h3>
+                            <div class="about__item--cont">
+                                <div class="network-cont">
+                                    <div class="network-cont__img">
+                                        <div class="network-cont__txt">
+                                            <img src="~/Images/network_img2.png" />
+                                            <p class="network-cont__txt1">고객 여러분들께</p>
+                                            <p class="network-cont__txt2">
+                                                <span>신속한 물류 솔루션 제시</span>를 위하여<br />
+                                                국내외 선사, 항공사 및 전세계 파트너들과의<br />
+                                                <span>유기적인 네트워크</span>를 구축하고 있습니다.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    }
+    else 
+    {
+        <main class="container">
+            <div class="sub-header">
+                <section class="contents sub-header__cont">
+                    <div class="sub-header__title">
+                        <p>
+                            ABOUT<br />
+                            TAEHWA L&C
+                        </p>
+                    </div>
+                    <div class="sub-header__icon">
+                        <div class="header-icon__list en on">
+                            <div class="icon-txt">
+                                <p class="icon-txt__eng en">Overview</p>                                
+                            </div>
+                            <div class="icon-img on width30">
+                                <img src="~/Images/about_icon1_on.png" />
+                            </div>
+                            <div class="icon-img off width30">
+                                <img src="~/Images/about_icon1_off.png" />
+                            </div>
+                        </div>
+                        <div class="header-icon__list en off">
+                            <div class="icon-txt">
+                                <p class="icon-txt__eng en">Symbol</p>
+                            </div>
+                            <div class="icon-img on">
+                                <img src="~/Images/about_icon2_on.png" />
+                            </div>
+                            <div class="icon-img off">
+                                <img src="~/Images/about_icon2_off.png" />
+                            </div>
+                        </div>
+                        <div class="header-icon__list en off">
+                            <div class="icon-txt">
+                                <p class="icon-txt__eng en">CEO’s Greetings</p>
+                            </div>
+                            <div class="icon-img on">
+                                <img src="~/Images/about_icon3_on.png" />
+                            </div>
+                            <div class="icon-img off">
+                                <img src="~/Images/about_icon3_off.png" />
+                            </div>
+                        </div>
+                        <div class="header-icon__list en off">
+                            <div class="icon-txt">
+                                <p class="icon-txt__eng en">Our History</p>
+                            </div>
+                            <div class="icon-img on">
+                                <img src="~/Images/about_icon4_on.png" />
+                            </div>
+                            <div class="icon-img off">
+                                <img src="~/Images/about_icon4_off.png" />
+                            </div>
+                        </div>
+                        <div class="header-icon__list en off">
+                            <div class="icon-txt">
+                                <p class="icon-txt__eng en">Global Network</p>
+                            </div>
+                            <div class="icon-img on">
+                                <img src="~/Images/about_icon5_on.png" />
+                            </div>
+                            <div class="icon-img off">
+                                <img src="~/Images/about_icon5_off.png" />
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <section class="contents">
+                <div class="sub-main__cont summary">
+                    <div class="about-item__box1">
+                        <div class="about__item card">
+                            <div class="about__item--title">
+                                <p class="about__item--title-eng en">CORPORATE NAME</p>
+                            </div>
+                            <div class="about__item--cont" style="padding-top:15px;">
+                                <img src="~/Images/about_card1.png" />
+                                <div class="about__item--cont__txt en">
+                                    <p class="sub__txt">TAEHWA LOGISTICS AND<br /> CHEMICALS CO.,LTD</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="about__item card">
+                            <div class="about__item--title">
+                                <p class="about__item--title-eng en">THE DAY OF FOUNDATION</p>
+                            </div>
+                            <div class="about__item--cont">
+                                <img src="~/Images/about_card2.png" />
+                                <div class="about__item--cont__txt">
+                                    <p>May 11, 1988</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-item__box2">
+                        <div class="about__item card">
+                            <div class="about__item inner_card en">
+                                <div class="about__item--title">
+                                    <p class="about__item--title-eng">BUSINESS AREAS</p>
+                                </div>
+                                <div class="about__item--cont">
+                                    <div class="about__item--cont--flex">
+                                        <p>Sea and Air International Logistics</p>
+                                        <p>Sales and Transportation of Chemical Products</p>
+                                        <p>Freight Cars Transportation Business</p>
+                                    </div>
+                                    <div class="about__item--cont--flex">
+                                        <p>Warehouse Service</p>
+                                        <p>Trading Business</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-item__box3">
+                        <div class="about__item card">
+                            <div id="daumRoughmapContainer1712131636182" class="root_daum_roughmap root_daum_roughmap_landing" style="width:65%;"></div>
+                            <div class="about__item--cont">
+                                <div class="about__item__info">
+                                    <div class="about__item__info--box">
+                                        <img src="~/Images/icn_location.png" />
+                                        <p class="about__item__info--box__title">LOCATION</p>
+                                        <p class="about__item__info--box__cont">6th Fl., 77, Dangsan-ro,<br />Yeongdeungpo-gu, Seoul</p>
+                                    </div>
+                                    <div class="about__item__info--box">
+                                        <img src="~/Images/icn_mail.png" />
+                                        <p class="about__item__info--box__title">MAIL</p>
+                                        <p class="about__item__info--box__cont">taehwa@taf.co.kr</p>
+                                        <p style="visibility:hidden;">.</p>
+                                    </div>
+                                </div>
+                                <div class="about__item__info">
+                                    <div class="about__item__info--box">
+                                        <img src="~/Images/icn_about_tel.png" />
+                                        <p class="about__item__info--box__title">TEL</p>
+                                        <p class="about__item__info--box__cont">82-2-2006-7500</p>
+                                    </div>
+                                    <div class="about__item__info--box" style="gap:0;">
+                                        <img src="~/Images/icn_info.png" />
+                                        <p class="about__item__info--box__title" style="padding-top:0; text-align:center;">INTRODUCTION</p>
+                                        <div class="intro_down">
+                                            <a href="~/File/TAEHWA_Intro.pdf" download>Korean</a>
+                                            <a href="~/File/TAEHWA_Intro.pdf" download>English</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sub-main__cont symbol" style="display:none;">
+                    <div class="about-item__box">
+                        <div class="about__item">
+                            <h3 class="about-page__title">Symbol</h3>
+                            <div class="about__item--cont">
+                                <div class="symbol-cont1">
+                                    <div class="symbol-cont1__box">
+                                        <p class="symbol-cont1__box__title">Motif</p>
+                                        <div class="symbol-img">
+                                            <img src="~/Images/symbol_img1.png" />
+                                        </div>
+                                    </div>
+                                    <div class="symbol-cont1__box">
+                                        <p class="symbol-cont1__box__title">Symbol</p>
+                                        <div class="symbol-img">
+                                            <img src="~/Images/symbol_img2.png" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="symbol-cont2">
+                                    <div class="symbol-cont2__box">
+                                        <p class="symbol-cont2__box__txt txt1">Since ancient times, it has been said to express an enterprising spirit</p>
+                                        <p class="symbol-cont2__box__txt txt1">in the sense of conveying bright hopes to many people,</p>
+                                        <p class="symbol-cont2__box__txt txt1">such as making wishes and pursuing luck while watching the fiery flames.</p>
+                                        <p class="symbol-cont2__box__txt txt2">For the hopeful future of all our customers,</p>
+                                        <p class="symbol-cont2__box__txt txt3">Taehwa L&C will do its best like an unextinguished torch.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sub-main__cont greeting" style="display:none;">
+                    <div class="about-item__box">
+                        <div class="about__item">
+                            <h3 class="about-page__title">CEO’s Greetings</h3>
+                            <div class="about__item--cont">
+                                <div class="greeting-cont">
+                                    <div class="greeting-cont1__box">
+                                        <div class="greeting__img"></div>
+                                    </div>
+                                    <div class="greeting-cont2__box">
+                                        <div>
+                                            <h3 class="greeting-cont2__box__title">Before You Do</h3>
+                                        </div>
+                                        <div>
+                                            <h3 class="greeting-cont2__box__title">We Prepare<em>!</em></h3>
+                                        </div>
+                                        <div class="greeting-cont2__box__txt">
+                                            <p>
+                                                We are living in a global era.<br />
+                                                Globalization in the global era is not a matter of choice, but of survival, <br />
+                                                and it is developing into a situation where society and economy are becoming more integrated among countries.<br />
+                                                We are living in a world different from that<br />
+                                                of the past and we need to be globally competitive.<br />
+                                                The areas of economic cooperation have been further expanded<br />
+                                                with communication and transportation technologies<br />
+                                                about which we do not know how much further they will develop,<br />
+                                                in particular, the Free Trade Agreement (FTA) among countries has lowered trade barriers,<br />
+                                                allowing them to pursue mutual economic gains<br />
+                                                As a result, all executives and employees of Taehwa L&C intend to<br />
+                                                share your business success and economic benefits with<br />
+                                                the experience and differentiation you have accumulated since 1988.<br />
+                                                We will always do our best to repay the love<br />
+                                                we have received from our customers through continuous development,<br />
+                                                including the introduction of advanced logistics systems,<br />
+                                                faster responses, the establishment of competitive systems,<br />
+                                                the systematization of third-party logistics, etc.<br />
+                                                Taehwa L&C prepares everything first.<br />
+                                                Please proceed with Taehwa L&C.<br />
+                                                I sincerely wish the health and happiness of you and your family who do their best today.<br />
+                                                Thank you always.<br />
+                                            </p>
+                                            <p>CEO,<span style="letter-spacing:0;">Lim, Kyung-hun</span></p>
+                                        </div>
+                                    </div>
+                                    <div class="greeting-cont3__box">
+                                        <div class="greeting-cont3__img">
+                                            <div class="greeting__img1"></div>
+                                        </div>
+                                        <div class="greeting-cont3__img">
+                                            <div class="greeting__img2"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sub-main__cont history" style="display:none;">
+                    <div class="about-item__box">
+                        <div class="about__item">
+                            <h3 class="about-page__title">Our History</h3>
+                            <div class="about__item--cont">
+                                <div class="history-cont">
+                                    <div class="history-cont__box1">
+                                        <img src="~/Images/history_right.png" />
+                                        <div class="history-cont__img-area">
+                                            <div class="history-cont1__box">
+                                                <div class="history__img"></div>
+                                            </div>
+                                        </div>
+                                        <div class="history-cont__box__txt">
+                                            <div class="history-cont__box__title">
+                                                <p class="year">2020~</p>
+                                            </div>
+                                            <div class="history-cont__box__list">
+                                                <div class="history-list en">
+                                                    <p class="history-list__title">June 2023</p>
+                                                    <p class="history-list__cont">Passed the Security Measurement by the Defense Security Command (Grade: Excellent)</p>
+                                                </div>
+                                                <div class="history-list en">
+                                                    <p class="history-list__title">September 2022</p>
+                                                    <p class="history-list__cont">Changed the Company name (TAEWHA LOGISTICS AND CHEMICALS)</p>
+                                                </div>
+                                                <div class="history-list en">
+                                                    <p class="history-list__title">March 2020</p>
+                                                    <p class="history-list__cont">Selected as a model taxpayer on the 54th Taxpayer's Day</p>
+                                                </div>
+                                                <div class="history-list en">
+                                                    <p class="history-list__title">March 2019</p>
+                                                    <p class="history-list__cont">Selected as a model taxpayer (Seoul Special City)</p>
+                                                </div>
+                                                <div class="history-list en">
+                                                    <p class="history-list__title">April 2018</p>
+                                                    <p class="history-list__cont">Acquired ISO 4500 (Safety and Health Management) Certification.</p>
+                                                </div>
+                                                <div class="history-list en">
+                                                    <p class="history-list__title">March 2018</p>
+                                                    <p class="history-list__cont">Acquired ISO 14001 (Environmental Management) Certification.</p>
+                                                </div>
+                                                <div class="history-list en">
+                                                    <p class="history-list__title">October 2014</p>
+                                                    <p class="history-list__cont">Acquired a High-Pressure Gas Manufacturing (Charging) License.</p>
+                                                </div>
+                                                <div class="history-list en">
+                                                    <p class="history-list__title">April 2014</p>
+                                                    <p class="history-list__cont">Established a high-pressure gas-producing and filling facility at the office in Yesan</p>
+                                                </div>
+                                                <div class="history-list en">
+                                                    <p class="history-list__title">April 2014</p>
+                                                    <p class="history-list__cont">Opened a chemical office in Ulsan.</p>
+                                                </div>
+                                                <div class="history-list en">
+                                                    <p class="history-list__title">May 2013</p>
+                                                    <p class="history-list__cont">Acquired AEO Certification (Korea Customs Service) (Grade: A)</p>
+                                                </div>
+                                                <div class="history-list en">
+                                                    <p class="history-list__title">March 2012</p>
+                                                    <p class="history-list__cont">Selected as a model taxpayer on the 46th Taxpayer’s Day (Yeongdeungpo Tax Office).</p>
+                                                </div>
+                                                <div class="history-list en">
+                                                    <p class="history-list__title">January 2011</p>
+                                                    <p class="history-list__cont">Registered as an associated enterprise of the Korea International Trade Association.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="history-cont__box2">
+                                        <img src="~/Images/history_left.png" />
+                                        <div class="history-cont__box__txt">
+                                            <div class="history-cont__box__title">
+                                                <p class="year">2010~</p>
+                                            </div>
+                                            <div class="history-cont__box__list">
+                                                <div class="history-list en">
+                                                    <p class="history-list__title">July 2009</p>
+                                                    <p class="history-list__cont">Acquired a trucking transportation business license.</p>
+                                                </div>
+                                                <div class="history-list en">
+                                                    <p class="history-list__title">October 2008</p>
+                                                    <p class="history-list__cont">Acquired ISO 9001 (Quality Management) Certification</p>
+                                                </div>
+                                                <div class="history-list en">
+                                                    <p class="history-list__title">December 2001</p>
+                                                    <p class="history-list__cont">Received the 9 Million Dollar Sales Award (Korean Air Lines).</p>
+                                                </div>
+                                                <div class="history-list en">
+                                                    <p class="history-list__title">December 2000</p>
+                                                    <p class="history-list__cont">Received the 11 Million Dollar Sales Award (Korean Air Lines).</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="history-cont__img-area">
+                                            <div class="history-cont2__box">
+                                                <div class="history__img"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="history-cont__box3">
+                                        <img src="~/Images/history_right.png" />
+                                        <div class="history-cont__img-area">
+                                            <div class="history-cont3__box">
+                                                <div class="history__img"></div>
+                                            </div>
+                                        </div>
+                                        <div class="history-cont__box__txt">
+                                            <div class="history-cont__box__title">
+                                                <p class="year">1988~</p>
+                                            </div>
+                                            <div class="history-cont__box__list">
+                                                <div class="history-list en">
+                                                    <p class="history-list__title">December 1998</p>
+                                                    <p class="history-list__cont">Received the 11 Million Dollar Sales Award (Korean Air Lines).</p>
+                                                </div>
+                                                <div class="history-lis ent">
+                                                    <p class="history-list__title">November 1998</p>
+                                                    <p class="history-list__cont">Established an office in Shanghai, China.</p>
+                                                </div>
+                                                <div class="history-list en">
+                                                    <p class="history-list__title">December 1997</p>
+                                                    <p class="history-list__cont">Received the 17 Million Dollar Sales Award (Korean Air Lines).</p>
+                                                </div>
+                                                <div class="history-list en">
+                                                    <p class="history-list__title">December 1995</p>
+                                                    <p class="history-list__cont">Received the 11 Million Dollar Sales Award (Korean Air Lines).</p>
+                                                </div>
+                                                <div class="history-list en">
+                                                    <p class="history-list__title">December 1992</p>
+                                                    <p class="history-list__cont">Acquired a Multi-modal transportation brokerage business license.</p>
+                                                </div>
+                                                <div class="history-list en">
+                                                    <p class="history-list__title">May 1988</p>
+                                                    <p class="history-list__cont">Established Taewha International Transportation Co., Ltd.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sub-main__cont network" style="display:none;">
+                    <div class="about-item__box">
+                        <div class="about__item">
+                            <h3 class="about-page__title">Global Network</h3>
+                            <div class="about__item--cont">
+                                <div class="network-cont">
+                                    <div class="network-cont__img">
+                                        <div class="network-cont__txt">
+                                            <img src="~/Images/network_img2.png" />
+                                            <p class="network-cont__txt1">To Our Customers</p>
+                                            <p class="network-cont__txt2">
+                                                We have been establishing<span> an organic network</span><br />
+                                                with domestic and overseas shipping Lines, airlines,<br />
+                                                and partners around the world<span> to quickly present logistics solutions.</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    }
+    
+    <script src="~/Scripts/about/about.js"></script>
+}
